@@ -1,0 +1,69 @@
+{
+  "entities": {
+    "Athlete": {
+      "title": "Athlete",
+      "description": "Atleta ou cliente gerido pelo treinador",
+      "type": "object",
+      "properties": {
+        "coachId": { "type": "string", "description": "UID do treinador responsável" },
+        "name": { "type": "string", "description": "Nome do atleta" },
+        "email": { "type": "string", "description": "Email de contacto" },
+        "phone": { "type": "string", "description": "Telefone de contacto" },
+        "level": { "type": "string", "description": "Nível do atleta" },
+        "primaryGoal": { "type": "string", "description": "Objetivo principal" }
+      },
+      "required": ["coachId", "name"]
+    },
+    "Exercise": {
+      "title": "Exercise",
+      "description": "Exercício da biblioteca do treinador",
+      "type": "object",
+      "properties": {
+        "coachId": { "type": "string", "description": "UID do treinador" },
+        "name": { "type": "string", "description": "Nome do exercício" },
+        "category": { "type": "string", "description": "Categoria do exercício" }
+      },
+      "required": ["coachId", "name"]
+    },
+    "TrainingProgram": {
+      "title": "TrainingProgram",
+      "description": "Programa ou modelo de treino prescrito",
+      "type": "object",
+      "properties": {
+        "coachId": { "type": "string", "description": "UID do treinador" },
+        "title": { "type": "string", "description": "Título do programa" },
+        "splitType": { "type": "string", "description": "Tipo de divisão" }
+      },
+      "required": ["coachId", "title"]
+    },
+    "PhysicalAssessment": {
+      "title": "PhysicalAssessment",
+      "description": "Avaliação física e testes neuromusculares",
+      "type": "object",
+      "properties": {
+        "coachId": { "type": "string", "description": "UID do treinador" },
+        "athleteId": { "type": "string", "description": "ID do atleta avaliado" },
+        "date": { "type": "string", "description": "Data da avaliação" }
+      },
+      "required": ["coachId", "athleteId"]
+    }
+  },
+  "firestore": {
+    "/athletes/{athleteId}": {
+      "schema": "Athlete",
+      "description": "Atletas do treinador"
+    },
+    "/exercises/{exerciseId}": {
+      "schema": "Exercise",
+      "description": "Exercícios do treinador"
+    },
+    "/programs/{programId}": {
+      "schema": "TrainingProgram",
+      "description": "Programas de treino do treinador"
+    },
+    "/assessments/{assessmentId}": {
+      "schema": "PhysicalAssessment",
+      "description": "Avaliações físicas registadas"
+    }
+  }
+}

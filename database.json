@@ -1,0 +1,3050 @@
+{
+  "athletes": [
+    {
+      "id": "ath-lucas-silva",
+      "name": "Lucas Silva",
+      "birthDate": "1996-05-14",
+      "age": 30,
+      "email": "lucas.silva.fit@email.com",
+      "phone": "(11) 98765-4321",
+      "level": "avancado",
+      "primaryGoal": "hipertrofia",
+      "secondaryGoals": [
+        "forca_maxima",
+        "emagrecimento"
+      ],
+      "preferredDays": [
+        "Seg",
+        "Ter",
+        "Qui",
+        "Sex"
+      ],
+      "sessionDurationMinutes": 75,
+      "location": "Academia BodyTech & Home Gym",
+      "availableEquipment": [
+        "barras_anilhas",
+        "halteres",
+        "maquinas",
+        "cabos_polias"
+      ],
+      "healthScreening": {
+        "parqPassed": true,
+        "injuriesHistory": [
+          "Leve desconforto patelar direito em 2024"
+        ],
+        "jointRestrictions": [
+          "Evitar agachamentos com amplitude além de 110° sem aquecimento"
+        ],
+        "medicalClearance": true,
+        "notes": "Excelente histórico de treino resistido há 5 anos consecutivos. Foco atual no desenvolvimento do peitoral superior e deltoides."
+      },
+      "coachNotes": "Fase de especialização de membros superiores e peitoral. Meta de 16 a 18 séries semanais para o grupo peitoral.",
+      "activeProgramId": "prog-hipertrofia-upper-lower",
+      "activeProgramName": "Periodização Hipertrofia Upper/Lower 4x",
+      "createdAt": "2026-01-10T10:00:00Z",
+      "lastActive": "2026-10-12T18:30:00Z"
+    },
+    {
+      "id": "ath-mariana-costa",
+      "name": "Mariana Costa",
+      "birthDate": "1993-08-22",
+      "age": 33,
+      "email": "mari.costa.runner@email.com",
+      "phone": "(21) 99123-5566",
+      "level": "avancado",
+      "primaryGoal": "corrida_resistencia",
+      "secondaryGoals": [
+        "condicionamento_geral",
+        "mobilidade_estabilidade"
+      ],
+      "preferredDays": [
+        "Ter",
+        "Qui",
+        "Sab",
+        "Dom"
+      ],
+      "sessionDurationMinutes": 60,
+      "location": "Pista de Atletismo, Parque Ibirapuera e Esteira",
+      "availableEquipment": [
+        "esteira",
+        "peso_corporal",
+        "halteres",
+        "elasticos"
+      ],
+      "healthScreening": {
+        "parqPassed": true,
+        "injuriesHistory": [
+          "Canelite (periostite medial) há 2 anos, totalmente recuperada"
+        ],
+        "jointRestrictions": [
+          "Atenção à mobilidade de tornozelo e força de panturrilha"
+        ],
+        "medicalClearance": true,
+        "notes": "Meta de baixar o tempo nos 10km para sub-45 min e correr a Meia Maratona no segundo semestre."
+      },
+      "coachNotes": "Controle de volume semanal em quilômetros. Integração de treinos de força para corredores com ênfase em RDL e búlgaro.",
+      "activeProgramId": "prog-corrida-performance",
+      "activeProgramName": "Preparação Específica 10k & Meia Maratona",
+      "createdAt": "2026-02-15T09:00:00Z",
+      "lastActive": "2026-10-14T07:15:00Z"
+    },
+    {
+      "id": "ath-rodrigo-mendes",
+      "name": "Rodrigo Mendes",
+      "birthDate": "1991-11-03",
+      "age": 34,
+      "email": "rodrigo.mendes.hyrox@email.com",
+      "phone": "(31) 98455-7788",
+      "level": "atleta",
+      "primaryGoal": "atleta_hibrido",
+      "secondaryGoals": [
+        "forca_maxima",
+        "corrida_resistencia",
+        "condicionamento_geral"
+      ],
+      "preferredDays": [
+        "Seg",
+        "Ter",
+        "Qua",
+        "Qui",
+        "Sex",
+        "Sab"
+      ],
+      "sessionDurationMinutes": 90,
+      "location": "Box de Treinamento Funcional / HYROX Lab",
+      "availableEquipment": [
+        "barras_anilhas",
+        "kettlebells",
+        "treno",
+        "remo_ergometrico",
+        "esteira",
+        "medicine_ball"
+      ],
+      "healthScreening": {
+        "parqPassed": true,
+        "injuriesHistory": [
+          "Nenhum histórico recente"
+        ],
+        "jointRestrictions": [
+          "Nenhuma restrição articular"
+        ],
+        "medicalClearance": true,
+        "notes": "Competidor amador de provas de corrida com obstáculos e HYROX Pro divisão individual."
+      },
+      "coachNotes": "Gerenciamento rigoroso do treino concorrente. Sessões pesadas de força separadas por pelo menos 6 horas dos tiros de corrida.",
+      "activeProgramId": "prog-hibrido-hyrox",
+      "activeProgramName": "Protocolo Híbrido: Força Máxima & Endurance de Alta Intensidade",
+      "createdAt": "2026-03-01T14:00:00Z",
+      "lastActive": "2026-10-13T19:00:00Z"
+    },
+    {
+      "id": "ath-gabriel-santos",
+      "name": "Gabriel Santos",
+      "birthDate": "2001-03-19",
+      "age": 25,
+      "email": "gabriel.santos.futebol@email.com",
+      "phone": "(19) 97788-9900",
+      "level": "atleta",
+      "primaryGoal": "desempenho_esportivo",
+      "secondaryGoals": [
+        "potencia_explosao",
+        "condicionamento_geral"
+      ],
+      "preferredDays": [
+        "Seg",
+        "Qua",
+        "Sex"
+      ],
+      "sessionDurationMinutes": 70,
+      "location": "Centro de Treinamento do Clube & Academia",
+      "availableEquipment": [
+        "barras_anilhas",
+        "halteres",
+        "treno",
+        "caixas_pliometricas",
+        "elasticos"
+      ],
+      "healthScreening": {
+        "parqPassed": true,
+        "injuriesHistory": [
+          "Entorse de tornozelo grau 1 em 2025"
+        ],
+        "jointRestrictions": [
+          "Fortalecimento contínuo de fibulares e propriocepção"
+        ],
+        "medicalClearance": true,
+        "notes": "Atleta de futebol (meio-campista ofensivo). Necessidade de aceleração rápida nos primeiros 10m e mudanças bruscas de direção."
+      },
+      "coachNotes": "Ênfase em pliometria unipodal, tiros com tração de trenó e estabilidade rotacional (Pallof Press).",
+      "activeProgramId": "prog-futebol-desempenho",
+      "activeProgramName": "Preparação Física Específica para Futebol de Campo",
+      "createdAt": "2026-04-10T11:00:00Z",
+      "lastActive": "2026-10-14T11:45:00Z"
+    },
+    {
+      "id": "ath-camila-nogueira",
+      "name": "Camila Nogueira",
+      "birthDate": "1998-12-05",
+      "age": 27,
+      "email": "camila.nogueira@email.com",
+      "phone": "(41) 98822-1133",
+      "level": "iniciante",
+      "primaryGoal": "emagrecimento",
+      "secondaryGoals": [
+        "condicionamento_geral",
+        "mobilidade_estabilidade"
+      ],
+      "preferredDays": [
+        "Seg",
+        "Qua",
+        "Sex"
+      ],
+      "sessionDurationMinutes": 50,
+      "location": "Academia do Condomínio",
+      "availableEquipment": [
+        "halteres",
+        "elasticos",
+        "esteira",
+        "peso_corporal"
+      ],
+      "healthScreening": {
+        "parqPassed": true,
+        "injuriesHistory": [
+          "Dores lombares posturais por trabalho sentado prolongado"
+        ],
+        "jointRestrictions": [
+          "Evitar cargas axiais pesadas diretas sobre a coluna"
+        ],
+        "medicalClearance": true,
+        "notes": "Iniciando rotina regular após 2 anos de sedentarismo. Priorizar adesão, técnica de movimento e prazer na atividade física."
+      },
+      "coachNotes": "Adaptação anatômica gradual. Combinação de exercícios compostos com peso livre e caminhadas na esteira em inclinação.",
+      "activeProgramId": "prog-iniciante-fullbody",
+      "activeProgramName": "Adaptação Funcional e Condicionamento Geral 3x",
+      "createdAt": "2026-05-20T16:00:00Z",
+      "lastActive": "2026-10-11T17:00:00Z"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ex-supino-reto-barra",
+      "name": "Supino Reto com Barra Olímpica",
+      "alternativeNames": [
+        "Barbell Bench Press",
+        "Supino Plano"
+      ],
+      "category": "musculacao",
+      "primaryGoals": [
+        "hipertrofia",
+        "forca_maxima"
+      ],
+      "secondaryGoals": [
+        "desempenho_esportivo",
+        "potencia_explosao"
+      ],
+      "primaryMuscles": [
+        "peitoral"
+      ],
+      "secondaryMuscles": [
+        "triceps",
+        "ombros"
+      ],
+      "movementPattern": "empurrar_horizontal",
+      "contractionType": "Dinâmica Isotônica (Excêntrica controlada e Concêntrica vigorosa)",
+      "physicalCapacities": [
+        "forca_maxima",
+        "potencia"
+      ],
+      "equipment": [
+        "barras_anilhas"
+      ],
+      "difficulty": "intermediario",
+      "instructions": {
+        "initialPosition": "Deite-se no banco mantendo cinco pontos de contato: pés firmes no chão, glúteos, escápulas retraídas e cabeça apoiada. Pegue a barra com largura ligeiramente superior à dos ombros.",
+        "execution": "Desbloqueie a barra, inspire trazendo-a de forma controlada até tocar a linha média dos mamilos, mantendo os cotovelos a ~45° a 70° do tronco.",
+        "finishing": "Empurre a barra estendendo os braços de maneira potente enquanto expira, sem perder a retração escapular no topo."
+      },
+      "breathingCues": "Inspire na descida (fase excêntrica) com suporte intra-abdominal (manobra de Valsalva controlada) e expire após passar pelo ponto de transição concêntrica.",
+      "commonMistakes": [
+        "Abrir cotovelos a 90° gerando sobrecarga de pinçamento nos deltoides anteriores e manguito.",
+        "Perder o arco fisiológico e descolar os glúteos do banco durante a subida de carga pesada.",
+        "Rebater a barra na caixa torácica para ganhar impulso elástico artificial."
+      ],
+      "coachCues": [
+        "Tente entortar a barra como se fosse quebrá-la para fora (ativação do grande dorsal e estabilização de ombro).",
+        "Empurre o chão com os calcanhares para ativar leg drive.",
+        "Mantenha as escápulas guardadas no bolso de trás da calça durante todo o percurso."
+      ],
+      "progressions": [
+        "Supino com Pausa no Peito (2s)",
+        "Supino Reto com Correntes ou Elásticos"
+      ],
+      "regressions": [
+        "Supino com Halteres (maior liberdade articular)",
+        "Supino na Máquina Articulada"
+      ],
+      "variations": [
+        "Supino Inclinado",
+        "Supino Declinado",
+        "Supino Pegada Fechada"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "3 a 5 séries",
+        "recommendedRepsOrDuration": "4 a 8 reps (força) ou 8 a 12 reps (hipertrofia)",
+        "intensityGuidance": "75% a 87% de 1RM ou RIR 1-2",
+        "restInterval": "90s a 180s",
+        "tempoCadence": "3-0-1-0 (3s descida, sem pausa, 1s subida)"
+      },
+      "safetyNotes": "Nunca use a pegada falsa (thumbless/suicide grip). Use travas de segurança e orientador (spotter) em cargas acima de 85% 1RM.",
+      "sportsApplications": [
+        "Futebol Americano",
+        "Rugby",
+        "Lutas (Judô/Jiu-Jitsu para empurrão de guarda)",
+        "Basquete"
+      ],
+      "tags": [
+        "peito",
+        "composto",
+        "barra",
+        "força pura",
+        "membros superiores"
+      ]
+    },
+    {
+      "id": "ex-supino-inclinado-halteres",
+      "name": "Supino Inclinado com Halteres",
+      "alternativeNames": [
+        "Incline Dumbbell Press",
+        "Supino 30 Graus Halteres"
+      ],
+      "category": "musculacao",
+      "primaryGoals": [
+        "hipertrofia"
+      ],
+      "secondaryGoals": [
+        "forca_maxima",
+        "desempenho_esportivo"
+      ],
+      "primaryMuscles": [
+        "peitoral",
+        "ombros"
+      ],
+      "secondaryMuscles": [
+        "triceps"
+      ],
+      "movementPattern": "empurrar_horizontal",
+      "contractionType": "Dinâmica Isotônica",
+      "physicalCapacities": [
+        "forca_relativa",
+        "resistencia_muscular"
+      ],
+      "equipment": [
+        "halteres"
+      ],
+      "difficulty": "intermediario",
+      "instructions": {
+        "initialPosition": "Ajuste o banco em inclinação de 30° a 45°. Sente-se com os halteres sobre os joelhos, impulsione-os para o peito e deite-se com escápulas aduzidas.",
+        "execution": "Desça os halteres com amplitude profunda ao lado do tórax, sentindo o alongamento da porção clavicular do peitoral.",
+        "finishing": "Empurre para cima aproximando os halteres sem bater um no outro no topo."
+      },
+      "breathingCues": "Inspiração profunda ao descer e expiração ritmada na metade final da subida.",
+      "commonMistakes": [
+        "Inclinar o banco a mais de 45°, transferindo o estímulo predominantemente para o deltoide anterior.",
+        "Deixar os punhos flexionarem para trás sob o peso do halter."
+      ],
+      "coachCues": [
+        "Pense em aproximar os bíceps um do outro no topo, e não apenas bater os halteres.",
+        "Sinta a clavícula abrindo na descida controlada."
+      ],
+      "progressions": [
+        "Supino Inclinado com Halteres com pausa no ponto de estiramento"
+      ],
+      "regressions": [
+        "Supino Inclinado no Smith ou Máquina Articulada"
+      ],
+      "variations": [
+        "Supino Inclinado Neutro (pegada neutra)",
+        "Supino Inclinado Alternado"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "3 a 4 séries",
+        "recommendedRepsOrDuration": "8 a 12 reps",
+        "intensityGuidance": "RIR 1-2 (RPE 8-9)",
+        "restInterval": "60s a 90s",
+        "tempoCadence": "2-1-1-0"
+      },
+      "safetyNotes": "Evite inclinações de banco excessivas se houver histórico de impacto subacromial.",
+      "sportsApplications": [
+        "Vôlei",
+        "Tênis",
+        "Lutas"
+      ],
+      "tags": [
+        "peitoral superior",
+        "halteres",
+        "hipertrofia",
+        "peito"
+      ]
+    },
+    {
+      "id": "ex-crucifixo-crossover",
+      "name": "Crucifixo no Cabo / Cross-Over Polia Média",
+      "alternativeNames": [
+        "Cable Flyes",
+        "Crucifixo no Crossover"
+      ],
+      "category": "musculacao",
+      "primaryGoals": [
+        "hipertrofia"
+      ],
+      "secondaryGoals": [
+        "resistencia_localizada"
+      ],
+      "primaryMuscles": [
+        "peitoral"
+      ],
+      "secondaryMuscles": [
+        "ombros"
+      ],
+      "movementPattern": "empurrar_horizontal",
+      "contractionType": "Isotônica com tensão contínua no pico de contração",
+      "physicalCapacities": [
+        "resistencia_muscular"
+      ],
+      "equipment": [
+        "cabos_polias"
+      ],
+      "difficulty": "iniciante",
+      "instructions": {
+        "initialPosition": "Ajuste as polias na altura do esterno. Dê um passo à frente com base ântero-posterior, tronco levemente inclinado à frente e cotovelos com leve flexão fixa.",
+        "execution": "Abra os braços controlando o retorno até sentir estiramento confortável no peito.",
+        "finishing": "Traga as mãos para a frente abraçando um barril imaginário e aperte o peitoral por 1 segundo no ápice da contração."
+      },
+      "breathingCues": "Inspire na abertura dos cabos e expire ao fechar à frente.",
+      "commonMistakes": [
+        "Transformar o crucifixo em um supino flexionando e estendendo os cotovelos.",
+        "Balançar o tronco para puxar o peso."
+      ],
+      "coachCues": [
+        "Cotovelos levemente flexionados e congelados como se abraçasse uma árvore gigante."
+      ],
+      "progressions": [
+        "Isometria de 2s no ponto de pico de contração"
+      ],
+      "regressions": [
+        "Peck Deck / Voador em Máquina"
+      ],
+      "variations": [
+        "Cross-Over Polia Alta (foco inferior)",
+        "Cross-Over Polia Baixa (foco superior)"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "3 séries",
+        "recommendedRepsOrDuration": "12 a 15 reps",
+        "intensityGuidance": "RIR 0-1 (próximo à falha concêntrica técnica)",
+        "restInterval": "60s",
+        "tempoCadence": "2-0-1-1"
+      },
+      "safetyNotes": "Não hiperestenda os ombros além da linha do tórax se sentir pontadas anteriores.",
+      "sportsApplications": [
+        "Natação",
+        "Ginástica"
+      ],
+      "tags": [
+        "isolamento",
+        "cabos",
+        "tensão constante",
+        "peito"
+      ]
+    },
+    {
+      "id": "ex-agachamento-livre-barra",
+      "name": "Agachamento Livre com Barra (Back Squat)",
+      "alternativeNames": [
+        "Barbell Squat",
+        "Agachamento Costas"
+      ],
+      "category": "musculacao",
+      "primaryGoals": [
+        "hipertrofia",
+        "forca_maxima"
+      ],
+      "secondaryGoals": [
+        "desempenho_esportivo",
+        "potencia_explosao",
+        "atleta_hibrido"
+      ],
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteos"
+      ],
+      "secondaryMuscles": [
+        "posteriores_coxa",
+        "abdomen_core",
+        "panturrilhas"
+      ],
+      "movementPattern": "agachamento",
+      "contractionType": "Dinâmica Multiarticular",
+      "physicalCapacities": [
+        "forca_maxima",
+        "potencia",
+        "estabilidade"
+      ],
+      "equipment": [
+        "barras_anilhas"
+      ],
+      "difficulty": "avancado",
+      "instructions": {
+        "initialPosition": "Posicione a barra sobre o trapézio (high bar) ou espinha da escápula (low bar). Pés na largura dos ombros com pontas apontadas ligeiramente para fora (15° a 30°).",
+        "execution": "Inicie quebrando o quadril e joelhos simultaneamente. Desça mantendo o tronco ereto e os joelhos alinhados com o segundo dedo do pé até a dobra do quadril passar abaixo do topo do joelho.",
+        "finishing": "Empurre o piso com os pés inteiros e suba estendendo joelhos e quadril com força explosiva."
+      },
+      "breathingCues": "Encha o abdômen de ar no topo, trave a pressão intra-abdominal (Bracing abdominal completo) e solte o ar após passar o ponto de transição da subida.",
+      "commonMistakes": [
+        "Valgo dinâmico (joelhos colapsando para dentro na subida).",
+        "Perda de rigidez lombar com retroversão pélvica agressiva (butt wink profundo).",
+        "Tirar os calcanhares do solo por falta de dorsiflexão de tornozelo."
+      ],
+      "coachCues": [
+        "Atarraxe os pés no chão gerando torque externo no quadril.",
+        "Abra o chão com as solas dos pés.",
+        "Mantenha o peito orgulhoso e os cotovelos puxados para baixo da barra."
+      ],
+      "progressions": [
+        "Agachamento com Pausa 3s na Paralela",
+        "Agachamento com Carga Excêntrica Acentuada"
+      ],
+      "regressions": [
+        "Agachamento Goblet com Halter/Kettlebell",
+        "Agachamento no Hack Machine"
+      ],
+      "variations": [
+        "Agachamento Frontal (Front Squat)",
+        "Agachamento Sumô",
+        "Box Squat"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "3 a 5 séries",
+        "recommendedRepsOrDuration": "3 a 6 reps (força) ou 8 a 10 reps (hipertrofia)",
+        "intensityGuidance": "75% a 85% de 1RM ou RIR 1-2",
+        "restInterval": "120s a 180s",
+        "tempoCadence": "3-1-1-0"
+      },
+      "safetyNotes": "Utilize barras de proteção do rack de agachamento devidamente ajustadas à altura da profundidade máxima.",
+      "sportsApplications": [
+        "Futebol",
+        "Basquete",
+        "Vôlei (impulsão vertical)",
+        "Artes Marciais",
+        "Corrida de Sprints"
+      ],
+      "tags": [
+        "pernas",
+        "rei dos exercicios",
+        "composto",
+        "força funcional",
+        "quadriceps"
+      ]
+    },
+    {
+      "id": "ex-levantamento-terra-romeno-rdl",
+      "name": "Levantamento Terra Romeno (RDL)",
+      "alternativeNames": [
+        "Romanian Deadlift",
+        "Stiff com Barra / RDL"
+      ],
+      "category": "musculacao",
+      "primaryGoals": [
+        "hipertrofia",
+        "forca_maxima"
+      ],
+      "secondaryGoals": [
+        "desempenho_esportivo",
+        "corrida_resistencia",
+        "atleta_hibrido"
+      ],
+      "primaryMuscles": [
+        "posteriores_coxa",
+        "gluteos"
+      ],
+      "secondaryMuscles": [
+        "costas",
+        "antebraco_pegada",
+        "abdomen_core"
+      ],
+      "movementPattern": "dobradica_quadril",
+      "contractionType": "Excêntrica pronunciada na cadeia posterior",
+      "physicalCapacities": [
+        "forca_maxima",
+        "estabilidade",
+        "potencia"
+      ],
+      "equipment": [
+        "barras_anilhas",
+        "halteres"
+      ],
+      "difficulty": "intermediario",
+      "instructions": {
+        "initialPosition": "Fique de pé segurando a barra com pegada pronada na largura dos ombros. Joelhos destravados (flexão de 15° fixa).",
+        "execution": "Empurre o quadril para trás como se quisesse tocar uma parede com os glúteos. Desça a barra raspando pelas coxas até abaixo dos joelhos, sentindo estiramento máximo nos isquiotibiais.",
+        "finishing": "Estenda o quadril impulsionando-o para a frente e contraia os glúteos no topo sem hiperestender a coluna lombar."
+      },
+      "breathingCues": "Inspiração profunda ao levar o quadril para trás e expiração forte na contração dos glúteos.",
+      "commonMistakes": [
+        "Flexionar a coluna lombar arredondando as costas.",
+        "Dobrar excessivamente os joelhos transformando o movimento em um agachamento comum.",
+        "Afastar a barra das pernas durante o trajeto descendente."
+      ],
+      "coachCues": [
+        "Feche uma gaveta imaginária com os glúteos atrás de você.",
+        "Barra colada nas canelas e peito aberto olhando 2 metros à frente no chão."
+      ],
+      "progressions": [
+        "RDL Unilateral (Single Leg Deadlift)",
+        "RDL com Déficit"
+      ],
+      "regressions": [
+        "RDL com Halteres com menor amplitude",
+        "Extensão de Quadril no Banco Romano 45°"
+      ],
+      "variations": [
+        "Stiff com joelhos quase retos",
+        "Levantamento Terra Tradicional"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "3 a 4 séries",
+        "recommendedRepsOrDuration": "6 a 10 reps",
+        "intensityGuidance": "RIR 1-2 (70-80% 1RM)",
+        "restInterval": "90s a 120s",
+        "tempoCadence": "3-0-1-0"
+      },
+      "safetyNotes": "Fundamental para prevenir estiramentos de isquiotibiais em corredores e futebolistas.",
+      "sportsApplications": [
+        "Futebol",
+        "Corrida de rua (economia de passada)",
+        "Rugby",
+        "Atletismo"
+      ],
+      "tags": [
+        "cadeia posterior",
+        "isquiotibiais",
+        "glúteo",
+        "prevenção de lesão"
+      ]
+    },
+    {
+      "id": "ex-barra-fixa-pronada",
+      "name": "Barra Fixa Pronada (Pull-Up)",
+      "alternativeNames": [
+        "Pull-Up",
+        "Barra Fixa Dorsal"
+      ],
+      "category": "musculacao",
+      "primaryGoals": [
+        "forca_maxima",
+        "hipertrofia"
+      ],
+      "secondaryGoals": [
+        "desempenho_esportivo",
+        "atleta_hibrido"
+      ],
+      "primaryMuscles": [
+        "costas"
+      ],
+      "secondaryMuscles": [
+        "biceps",
+        "antebraco_pegada",
+        "ombros"
+      ],
+      "movementPattern": "puxar_vertical",
+      "contractionType": "Dinâmica contra peso corporal",
+      "physicalCapacities": [
+        "forca_relativa",
+        "forca_maxima"
+      ],
+      "equipment": [
+        "peso_corporal"
+      ],
+      "difficulty": "avancado",
+      "instructions": {
+        "initialPosition": "Segure a barra com pegada pronada ligeiramente mais larga que os ombros, em suspensão passiva com braços estendidos.",
+        "execution": "Inicie deprimindo e retraindo as escápulas. Puxe o corpo para cima levando o peito em direção à barra até o queixo ultrapassar a linha da barra.",
+        "finishing": "Desça controladamente até a extensão completa dos cotovelos sem soltar os ombros bruscamente."
+      },
+      "breathingCues": "Inspire embaixo e expire durante a puxada.",
+      "commonMistakes": [
+        "Kipping excessivo ou balanço descontrolado de pernas quando o objetivo for força/hipertrofia.",
+        "Não descer até a extensão completa por fadiga prematura."
+      ],
+      "coachCues": [
+        "Puxe os cotovelos para os bolsos de trás da calça.",
+        "Peito na barra!"
+      ],
+      "progressions": [
+        "Barra Fixa com Peso Adicional (Belt com anilha)"
+      ],
+      "regressions": [
+        "Puxada Alta na Polia (Lat Pulldown)",
+        "Barra Fixa com Elástico (Band Assisted)"
+      ],
+      "variations": [
+        "Barra Fixa Supinada (Chin-Up)",
+        "Barra Fixa com Pegada Neutra"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "3 a 4 séries",
+        "recommendedRepsOrDuration": "6 a 10 reps",
+        "intensityGuidance": "RPE 8-9",
+        "restInterval": "90s a 120s",
+        "tempoCadence": "2-0-1-1"
+      },
+      "safetyNotes": "Cuidado se houver instabilidade no lábio glenoidal ou tendinopatia distal do bíceps.",
+      "sportsApplications": [
+        "Escalada",
+        "Jiu-Jitsu / Judô",
+        "Ginástica Artística",
+        "HYROX"
+      ],
+      "tags": [
+        "dorsal",
+        "calistenia",
+        "força relativa",
+        "costas"
+      ]
+    },
+    {
+      "id": "ex-remada-curvada-barra",
+      "name": "Remada Curvada com Barra (Barbell Row)",
+      "alternativeNames": [
+        "Bent-Over Barbell Row",
+        "Remada 45 Graus"
+      ],
+      "category": "musculacao",
+      "primaryGoals": [
+        "hipertrofia",
+        "forca_maxima"
+      ],
+      "secondaryGoals": [
+        "desempenho_esportivo"
+      ],
+      "primaryMuscles": [
+        "costas"
+      ],
+      "secondaryMuscles": [
+        "biceps",
+        "antebraco_pegada",
+        "posteriores_coxa"
+      ],
+      "movementPattern": "puxar_horizontal",
+      "contractionType": "Isotônica com estabilização isométrica do tronco",
+      "physicalCapacities": [
+        "forca_maxima",
+        "estabilidade"
+      ],
+      "equipment": [
+        "barras_anilhas"
+      ],
+      "difficulty": "intermediario",
+      "instructions": {
+        "initialPosition": "Com a barra nas mãos, incline o tronco para frente entre 45° e paralelo ao chão, mantendo coluna lombar neutra e joelhos semi-flexionados.",
+        "execution": "Puxe a barra em direção ao umbigo mantendo os cotovelos próximos às costelas.",
+        "finishing": "Contraia as escápulas intensamente no ápice e desça com controle sem arredondar as costas."
+      },
+      "breathingCues": "Inspire na descida do peso e expire ao puxar contra o abdômen.",
+      "commonMistakes": [
+        "Usar impulso de quadril para subir a carga com tronco balançando.",
+        "Encolher os ombros tensionando o trapézio superior excessivamente."
+      ],
+      "coachCues": [
+        "Aperte uma noz entre as escápulas no final de cada repetição."
+      ],
+      "progressions": [
+        "Remada Pendlay (partindo do chão a cada repetição)"
+      ],
+      "regressions": [
+        "Remada no Cabo Sentado (Low Cable Row)",
+        "Remada com Halter apoiado no banco"
+      ],
+      "variations": [
+        "Remada Cavalinho (T-Bar Row)",
+        "Remada Curvada Supinada"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "3 a 4 séries",
+        "recommendedRepsOrDuration": "8 a 12 reps",
+        "intensityGuidance": "RIR 1-2",
+        "restInterval": "90s",
+        "tempoCadence": "2-1-1-0"
+      },
+      "safetyNotes": "Exige boa rigidez lombar. Caso haja desconforto na lombar, opte por versões com suporte no peito.",
+      "sportsApplications": [
+        "Lutas",
+        "Remo",
+        "Futebol Americano"
+      ],
+      "tags": [
+        "costas",
+        "densidade dorsal",
+        "composto"
+      ]
+    },
+    {
+      "id": "ex-bulgaro-halteres",
+      "name": "Agachamento Búlgaro com Halteres",
+      "alternativeNames": [
+        "Bulgarian Split Squat",
+        "Agachamento Unilateral com Pé Apoiado"
+      ],
+      "category": "musculacao",
+      "primaryGoals": [
+        "hipertrofia",
+        "desempenho_esportivo"
+      ],
+      "secondaryGoals": [
+        "forca_maxima",
+        "corrida_resistencia",
+        "atleta_hibrido"
+      ],
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteos"
+      ],
+      "secondaryMuscles": [
+        "posteriores_coxa",
+        "panturrilhas",
+        "abdomen_core"
+      ],
+      "movementPattern": "avancos_unilateral",
+      "contractionType": "Isotônica Unilateral",
+      "physicalCapacities": [
+        "forca_relativa",
+        "equilibrio",
+        "estabilidade"
+      ],
+      "equipment": [
+        "halteres"
+      ],
+      "difficulty": "intermediario",
+      "instructions": {
+        "initialPosition": "Fique de costas para um banco e posicione o dorso de um dos pés apoiado nele. O pé da frente fica firme no solo a cerca de 60 a 90 cm de distância.",
+        "execution": "Desça flexionando o joelho da perna dianteira até a coxa ficar paralela ao chão, mantendo leve inclinação anterior do tronco para engajar o glúteo.",
+        "finishing": "Empurre o chão com o meio do pé da perna da frente e retorne ao topo sem travar o joelho bruscamente."
+      },
+      "breathingCues": "Inspire descendo com controle e expire empurrando o chão.",
+      "commonMistakes": [
+        "Colocar o pé muito próximo ao banco comprimindo a patela.",
+        "Desequilíbrio lateral por alinhar os dois pés na mesma linha estreita."
+      ],
+      "coachCues": [
+        "Pense nos pés apoiados em dois trilhos de trem paralelos, nunca em uma corda bamba."
+      ],
+      "progressions": [
+        "Búlgaro com barra nas costas ou déficit sob o pé dianteiro"
+      ],
+      "regressions": [
+        "Afundo estático no chão (Split Squat com dois pés no piso)"
+      ],
+      "variations": [
+        "Búlgaro no Smith",
+        "Búlgaro com Salto Pliométrico"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "3 séries por perna",
+        "recommendedRepsOrDuration": "8 a 12 reps cada",
+        "intensityGuidance": "RIR 1-2",
+        "restInterval": "60s a 90s entre pernas",
+        "tempoCadence": "3-0-1-0"
+      },
+      "safetyNotes": "Excelente para corrigir assimetrias de força entre membros inferiores.",
+      "sportsApplications": [
+        "Futebol",
+        "Basquete",
+        "Corrida de rua (estabilidade pélvica de passada)"
+      ],
+      "tags": [
+        "unilateral",
+        "glúteo",
+        "quadríceps",
+        "estabilidade"
+      ]
+    },
+    {
+      "id": "ex-elevacao-pelvica-barra",
+      "name": "Elevação Pélvica com Barra (Barbell Hip Thrust)",
+      "alternativeNames": [
+        "Hip Thrust",
+        "Ponte de Glúteos com Barra"
+      ],
+      "category": "musculacao",
+      "primaryGoals": [
+        "hipertrofia",
+        "potencia_explosao"
+      ],
+      "secondaryGoals": [
+        "desempenho_esportivo",
+        "corrida_resistencia"
+      ],
+      "primaryMuscles": [
+        "gluteos"
+      ],
+      "secondaryMuscles": [
+        "posteriores_coxa",
+        "abdomen_core"
+      ],
+      "movementPattern": "dobradica_quadril",
+      "contractionType": "Concêntrica potente com pico isométrico de 1s",
+      "physicalCapacities": [
+        "forca_maxima",
+        "potencia"
+      ],
+      "equipment": [
+        "barras_anilhas"
+      ],
+      "difficulty": "intermediario",
+      "instructions": {
+        "initialPosition": "Apoie as escápulas na borda de um banco acolchoado. Coloque a barra acolchoada sobre a dobra do quadril e posicione os pés no chão na largura dos quadris.",
+        "execution": "Conduza a extensão do quadril empurrando com os calcanhares até que o tronco e as coxas fiquem paralelos ao chão.",
+        "finishing": "Aperte os glúteos com máxima intensidade por 1s mantendo queixo encostado no peito, e desça com controle."
+      },
+      "breathingCues": "Expire ao subir estendendo o quadril e inspire ao descer.",
+      "commonMistakes": [
+        "Hiperestender a coluna lombar no topo em vez de fazer retroversão pélvica com os glúteos.",
+        "Olhar para o teto relaxando a musculatura anterior."
+      ],
+      "coachCues": [
+        "Olhe para a frente o tempo todo (queixo colado) e contraia o abdômen junto com o glúteo."
+      ],
+      "progressions": [
+        "Hip Thrust com Pausa 3s no Topo",
+        "Hip Thrust Unilateral"
+      ],
+      "regressions": [
+        "Ponte de Glúteos no Chão com Halter ou Peso Corporal"
+      ],
+      "variations": [
+        "Hip Thrust com Elástico nos Joelhos para ativação de glúteo médio"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "3 a 4 séries",
+        "recommendedRepsOrDuration": "8 a 12 reps",
+        "intensityGuidance": "RPE 8-9 (75% a 85% 1RM)",
+        "restInterval": "90s",
+        "tempoCadence": "2-1-1-1"
+      },
+      "safetyNotes": "Use protetor de barra espesso (pad) para evitar compressão dolorosa na crista ilíaca.",
+      "sportsApplications": [
+        "Sprints de atletismo",
+        "Futebol (arranque inicial)",
+        "Vôlei"
+      ],
+      "tags": [
+        "glúteo máximo",
+        "potência de quadril",
+        "sprint"
+      ]
+    },
+    {
+      "id": "ex-salto-vertical-cmj",
+      "name": "Salto Vertical com Contramovimento (CMJ)",
+      "alternativeNames": [
+        "Countermovement Jump",
+        "Vertical Jump Test"
+      ],
+      "category": "pliometria",
+      "primaryGoals": [
+        "potencia_explosao",
+        "desempenho_esportivo"
+      ],
+      "secondaryGoals": [
+        "forca_maxima",
+        "atleta_hibrido"
+      ],
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteos",
+        "panturrilhas"
+      ],
+      "secondaryMuscles": [
+        "abdomen_core"
+      ],
+      "movementPattern": "saltos_aterrissagens",
+      "contractionType": "Ciclo Alongamento-Encurtamento Rápido (SSC)",
+      "physicalCapacities": [
+        "potencia",
+        "aceleracao"
+      ],
+      "equipment": [
+        "peso_corporal"
+      ],
+      "difficulty": "intermediario",
+      "instructions": {
+        "initialPosition": "Fique em pé ereto com pés na largura do quadril e braços ao lado do corpo ou estendidos à frente.",
+        "execution": "Flexione rapidamente o quadril e joelhos enquanto balança os braços para trás (contramovimento de 0.2s) e impulsione o chão imediatamente.",
+        "finishing": "Decole na vertical com extensão tripla completa (tornozelo, joelho e quadril) e aterrisse suavemente na ponta dos pés absorvendo o impacto com joelhos destravados."
+      },
+      "breathingCues": "Inspire na descida do contramovimento e expire com máxima explosão na decolagem.",
+      "commonMistakes": [
+        "Aterrissar com pernas estendidas e joelhos em valgo gerando estresse ligamentar.",
+        "Pausar embaixo no contramovimento perdendo o efeito da energia elástica acumulada pelos tendões."
+      ],
+      "coachCues": [
+        "Empurre o planeta para longe de você!",
+        "Aterrisse silencioso como um felino."
+      ],
+      "progressions": [
+        "Drop Jump de Caixa de 30cm",
+        "Salto Vertical com Halteres leves (Dumbbell Jump Squat)"
+      ],
+      "regressions": [
+        "Salto para Cima de Caixa Baixa (reduz impacto de aterrissagem)"
+      ],
+      "variations": [
+        "Salto Unilateral",
+        "Salto em Distância (Broad Jump)"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "4 a 5 séries",
+        "recommendedRepsOrDuration": "3 a 5 saltos com esforço máximo",
+        "intensityGuidance": "100% de esforço em cada salto (qualidade máxima)",
+        "restInterval": "90s a 120s entre séries",
+        "tempoCadence": "Explosivo / Balístico"
+      },
+      "safetyNotes": "Aqueça muito bem tendão patelar e tendão de Aquiles. Não faça em estado de fadiga aguda.",
+      "sportsApplications": [
+        "Basquete",
+        "Vôlei",
+        "Futebol (cabeceio)",
+        "Futsal"
+      ],
+      "tags": [
+        "pliometria",
+        "salto",
+        "potência",
+        "velocidade"
+      ]
+    },
+    {
+      "id": "ex-sled-push-treno",
+      "name": "Empurrão de Trenó Pesado (Sled Push)",
+      "alternativeNames": [
+        "Prowler Push",
+        "Trenó de Força"
+      ],
+      "category": "funcional_potencia",
+      "primaryGoals": [
+        "desempenho_esportivo",
+        "atleta_hibrido"
+      ],
+      "secondaryGoals": [
+        "emagrecimento",
+        "potencia_explosao",
+        "condicionamento_geral"
+      ],
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteos",
+        "panturrilhas"
+      ],
+      "secondaryMuscles": [
+        "ombros",
+        "abdomen_core",
+        "peitoral"
+      ],
+      "movementPattern": "transporte_cargas",
+      "contractionType": "Puramente concêntrico com ausência de dano excêntrico muscular severo",
+      "physicalCapacities": [
+        "aceleracao",
+        "capacidade_anaerobica",
+        "forca_maxima",
+        "potencia"
+      ],
+      "equipment": [
+        "treno"
+      ],
+      "difficulty": "intermediario",
+      "instructions": {
+        "initialPosition": "Segure as hastes verticais do trenó com braços firmes, tronco inclinado a 45° mantendo alinhamento do calcanhar à cabeça.",
+        "execution": "Empurre o trenó dando passadas vigorosas e alternadas, cravando o antepé no solo e estendendo o quadril a cada passada.",
+        "finishing": "Mantenha velocidade constante até ultrapassar a marca de metragem estipulada."
+      },
+      "breathingCues": "Respiração cadenciada rítmica mantendo rigidez do core.",
+      "commonMistakes": [
+        "Empurrar com os braços flexionados perto demais das hastes perdendo alavanca.",
+        "Perder a neutralidade da coluna lombar flexionando as costas."
+      ],
+      "coachCues": [
+        "Crave as garras no solo e acelere a passada.",
+        "Corpo como uma flecha a 45 graus."
+      ],
+      "progressions": [
+        "Sled Push com 150% do peso corporal em tiros de 20m"
+      ],
+      "regressions": [
+        "Sled Push com carga moderada em piso de grama sintética"
+      ],
+      "variations": [
+        "Arrasto de Trenó com Corda (Sled Pull)",
+        "Arrasto Lateral com Cinto"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "4 a 6 tiros",
+        "recommendedRepsOrDuration": "20 a 30 metros",
+        "intensityGuidance": "RPE 9-10 (Tiro máximo)",
+        "restInterval": "90s a 120s",
+        "tempoCadence": "Aceleração contínua"
+      },
+      "safetyNotes": "Excelente para quem tem dores articulares pois tem mínima fase excêntrica geradora de dor muscular tardia.",
+      "sportsApplications": [
+        "HYROX",
+        "Futebol",
+        "Rugby",
+        "Cross Training",
+        "Corrida de Sprints"
+      ],
+      "tags": [
+        "trenó",
+        "condicionamento",
+        "aceleração",
+        "híbrido"
+      ]
+    },
+    {
+      "id": "ex-tiros-intervalados-corrida",
+      "name": "Tiros Intervalados de Alta Intensidade (HIIT 400m)",
+      "alternativeNames": [
+        "Interval Training",
+        "Treino de Tiros na Pista / Esteira"
+      ],
+      "category": "cardio_locomocao",
+      "primaryGoals": [
+        "corrida_resistencia"
+      ],
+      "secondaryGoals": [
+        "emagrecimento",
+        "desempenho_esportivo",
+        "atleta_hibrido"
+      ],
+      "primaryMuscles": [
+        "quadriceps",
+        "posteriores_coxa",
+        "panturrilhas"
+      ],
+      "secondaryMuscles": [
+        "gluteos",
+        "abdomen_core"
+      ],
+      "movementPattern": "corrida_locomocao",
+      "contractionType": "Locomoção Cíclica de Alta Velocidade",
+      "physicalCapacities": [
+        "resistencia_aerobica",
+        "capacidade_anaerobica",
+        "velocidade"
+      ],
+      "equipment": [
+        "esteira"
+      ],
+      "difficulty": "avancado",
+      "instructions": {
+        "initialPosition": "Após aquecimento de 10 min de trote e exercícios educativos de corrida, posicione-se pronto para acelerar.",
+        "execution": "Corra o tiro de 400m no ritmo alvo estipulado (ex: pace de 3:45 a 4:15 min/km), mantendo cadência de 175-185 passos por minuto.",
+        "finishing": "Reduza progressivamente nos últimos 20m e caminhe/trotine no intervalo de descanso."
+      },
+      "breathingCues": "Ritmo 2x2 (inspire em duas passadas, expire em duas passadas).",
+      "commonMistakes": [
+        "Iniciar os primeiros 100m em velocidade descontrolada e quebrar no final do tiro.",
+        "Parar completamente estático de repente após o término do tiro."
+      ],
+      "coachCues": [
+        "Mantenha os ombros relaxados e os braços balançando para frente e para trás, nunca cruzando o peito."
+      ],
+      "progressions": [
+        "Aumentar para 8 a 10 repetições mantendo pace ou diminuir o descanso para 60s"
+      ],
+      "regressions": [
+        "Tiros mais curtos de 200m com intervalo 1:2"
+      ],
+      "variations": [
+        "Fartlek contínuo",
+        "Subida de ladeira (Hill Sprints)"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "6 a 8 repetições",
+        "recommendedRepsOrDuration": "400 metros cada tiro",
+        "intensityGuidance": "Zona 4 / Zona 5 (90% a 95% FC Máx ou Pace de 3km)",
+        "restInterval": "90s de trote leve ou caminhada (descanso ativo)",
+        "tempoCadence": "Cadência alta (~180 spm)"
+      },
+      "safetyNotes": "Exige calçado adequado e adaptação prévia de tendões. Não realizar após treinos extenuantes de pernas no mesmo dia.",
+      "sportsApplications": [
+        "Corrida de Rua (5k, 10k, Meia Maratona)",
+        "Futebol",
+        "Triatlo"
+      ],
+      "tags": [
+        "tiros",
+        "corrida",
+        "vo2max",
+        "endurance",
+        "pace"
+      ]
+    },
+    {
+      "id": "ex-corrida-ritmo-tempo-run",
+      "name": "Corrida Contínua de Ritmo (Tempo Run / Limiar)",
+      "alternativeNames": [
+        "Threshold Run",
+        "Corrida de Limiar de Lactato"
+      ],
+      "category": "cardio_locomocao",
+      "primaryGoals": [
+        "corrida_resistencia"
+      ],
+      "secondaryGoals": [
+        "atleta_hibrido",
+        "condicionamento_geral"
+      ],
+      "primaryMuscles": [
+        "quadriceps",
+        "panturrilhas",
+        "posteriores_coxa"
+      ],
+      "secondaryMuscles": [
+        "gluteos",
+        "corpo_inteiro"
+      ],
+      "movementPattern": "corrida_locomocao",
+      "contractionType": "Oxidativo Contínuo Sub-Limiar",
+      "physicalCapacities": [
+        "resistencia_aerobica"
+      ],
+      "equipment": [
+        "esteira"
+      ],
+      "difficulty": "intermediario",
+      "instructions": {
+        "initialPosition": "10 min de aquecimento em ritmo regenerativo leve (Zona 2).",
+        "execution": "Suba o ritmo para a zona de limiar anaeróbio (esforço confortavelmente duro, onde você consegue falar apenas frases curtas) e sustente de forma constante.",
+        "finishing": "Desaqueça com 5 a 10 min de trote leve e caminhada."
+      },
+      "breathingCues": "Respiração profunda e constante de 3x3 ou 2x2 passos.",
+      "commonMistakes": [
+        "Transformar o treino em prova de 5km correndo acima do limiar e acumulando lactato cedo demais."
+      ],
+      "coachCues": [
+        "Encontre o ritmo de cruzeiro e mantenha a cabeça focada na técnica de aterrissagem média do pé."
+      ],
+      "progressions": [
+        "Aumentar o bloco de tempo de 25 min para 40 min sustentado"
+      ],
+      "regressions": [
+        "Dividir em 2 blocos de 12 min com 3 min de trote entre eles (Cruise Intervals)"
+      ],
+      "variations": [
+        "Progressive Run (começa em Z2 e termina no limiar Z4)"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "1 bloco contínuo",
+        "recommendedRepsOrDuration": "25 a 35 minutos no ritmo de limiar",
+        "intensityGuidance": "Zona 3 alta / Zona 4 (83% a 88% FC Máx ou RPE 7/10)",
+        "restInterval": "Sem descanso no bloco",
+        "tempoCadence": "Pace estável"
+      },
+      "safetyNotes": "Manter hidratação adequada em dias quentes.",
+      "sportsApplications": [
+        "Meia Maratona",
+        "Maratona",
+        "Triatlo",
+        "Futebol"
+      ],
+      "tags": [
+        "corrida",
+        "limiar",
+        "lactato",
+        "aeróbico"
+      ]
+    },
+    {
+      "id": "ex-farmer-walk-caminhada-fazendeiro",
+      "name": "Caminhada do Fazendeiro (Farmer's Walk)",
+      "alternativeNames": [
+        "Farmer Carry",
+        "Transporte de Halteres Pesados"
+      ],
+      "category": "funcional_potencia",
+      "primaryGoals": [
+        "atleta_hibrido",
+        "desempenho_esportivo"
+      ],
+      "secondaryGoals": [
+        "forca_maxima",
+        "condicionamento_geral"
+      ],
+      "primaryMuscles": [
+        "antebraco_pegada",
+        "abdomen_core"
+      ],
+      "secondaryMuscles": [
+        "costas",
+        "quadriceps",
+        "gluteos"
+      ],
+      "movementPattern": "transporte_cargas",
+      "contractionType": "Isométrica Máxima de Pegada e Core com Locomoção Dinâmica",
+      "physicalCapacities": [
+        "forca_relativa",
+        "estabilidade",
+        "resistencia_muscular"
+      ],
+      "equipment": [
+        "halteres",
+        "kettlebells"
+      ],
+      "difficulty": "intermediario",
+      "instructions": {
+        "initialPosition": "Fique de pé entre dois halteres, kettlebells ou barras pesadas. Faça um levantamento terra com coluna perfeita para erguer as cargas.",
+        "execution": "Caminhe com passos curtos e controlados, peito ereto, ombros para trás e abdômen fortemente contraído, sem deixar as cargas balançarem.",
+        "finishing": "Abaixe as cargas com técnica impecável de dobradiça de quadril."
+      },
+      "breathingCues": "Respire curto e controlado por cima da musculatura abdominal tensa.",
+      "commonMistakes": [
+        "Deixar os ombros caírem para frente em protração relaxada.",
+        "Dar passadas longas instáveis colidindo os halteres com as coxas."
+      ],
+      "coachCues": [
+        "Ande alto e orgulhoso como se fosse o rei do ginásio."
+      ],
+      "progressions": [
+        "Caminhada com peso equivalente ao peso corporal em cada mão"
+      ],
+      "regressions": [
+        "Farmer Walk com halteres médios por 20 segundos"
+      ],
+      "variations": [
+        "Suitcase Carry (unilateral - apenas de um lado)",
+        "Overhead Carry"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "3 a 4 passagens",
+        "recommendedRepsOrDuration": "30 a 50 metros ou 40 segundos",
+        "intensityGuidance": "Carga pesada desafiadora para a pegada",
+        "restInterval": "90s",
+        "tempoCadence": "Passo cadenciado e firme"
+      },
+      "safetyNotes": "Excelente para estabilização de pelve e prevenção de dores nos ombros.",
+      "sportsApplications": [
+        "HYROX",
+        "Artes Marciais (pegada de quimono)",
+        "Powerlifting",
+        "Rugby"
+      ],
+      "tags": [
+        "pegada",
+        "core",
+        "transporte",
+        "funcional",
+        "antebraço"
+      ]
+    },
+    {
+      "id": "ex-pallof-press-cabo",
+      "name": "Pallof Press no Cabo / Elástico",
+      "alternativeNames": [
+        "Cable Pallof Press",
+        "Antirrotação de Tronco"
+      ],
+      "category": "funcional_potencia",
+      "primaryGoals": [
+        "mobilidade_estabilidade",
+        "desempenho_esportivo"
+      ],
+      "secondaryGoals": [
+        "retorno_progressivo",
+        "hipertrofia"
+      ],
+      "primaryMuscles": [
+        "abdomen_core"
+      ],
+      "secondaryMuscles": [
+        "gluteos",
+        "ombros"
+      ],
+      "movementPattern": "rotacao_antirotacao",
+      "contractionType": "Anti-rotacional isométrica com braço de alavanca variável",
+      "physicalCapacities": [
+        "estabilidade",
+        "coordenacao"
+      ],
+      "equipment": [
+        "cabos_polias",
+        "elasticos"
+      ],
+      "difficulty": "iniciante",
+      "instructions": {
+        "initialPosition": "Fique de lado para a polia (na altura do peito). Segure o puxador com as duas mãos junto ao esterno, com pernas afastadas na largura dos ombros.",
+        "execution": "Estenda os braços em linha reta à sua frente, resistindo ativamente à força do cabo que tenta rodar seu tronco em direção à polia.",
+        "finishing": "Sustente por 2 segundos à frente com o core rígido e retorne as mãos ao peito com controle."
+      },
+      "breathingCues": "Expire ao estender os braços à frente mantendo o abdômen travado.",
+      "commonMistakes": [
+        "Girar os quadris ou inclinar o tronco compensando a carga."
+      ],
+      "coachCues": [
+        "Imagine que você é uma coluna de concreto imutável contra o vento."
+      ],
+      "progressions": [
+        "Pallof Press em base de afundo (Split Stance)",
+        "Pallof Press com elevação acima da cabeça"
+      ],
+      "regressions": [
+        "Pallof Press com elástico de menor tensão de joelhos no colchonete"
+      ],
+      "variations": [
+        "Pallof Hold Isométrico por 20s"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "3 séries por lado",
+        "recommendedRepsOrDuration": "10 a 12 reps lentas",
+        "intensityGuidance": "Controle motor fino e estabilidade estrita",
+        "restInterval": "45s entre lados",
+        "tempoCadence": "2-2-2-0 (2s segurando à frente)"
+      },
+      "safetyNotes": "Ideal para reabilitação e proteção de coluna lombar contra cisalhamento.",
+      "sportsApplications": [
+        "Golfe",
+        "Tênis",
+        "Futebol",
+        "Artes Marciais (estabilidade no clinch)"
+      ],
+      "tags": [
+        "core",
+        "anti-rotação",
+        "estabilidade",
+        "coluna"
+      ]
+    },
+    {
+      "id": "ex-desenvolvimento-militar-barra",
+      "name": "Desenvolvimento Militar em Pé com Barra (Overhead Press)",
+      "alternativeNames": [
+        "Overhead Press - OHP",
+        "Military Press"
+      ],
+      "category": "musculacao",
+      "primaryGoals": [
+        "forca_maxima",
+        "hipertrofia"
+      ],
+      "secondaryGoals": [
+        "desempenho_esportivo"
+      ],
+      "primaryMuscles": [
+        "ombros"
+      ],
+      "secondaryMuscles": [
+        "triceps",
+        "abdomen_core",
+        "peitoral"
+      ],
+      "movementPattern": "empurrar_vertical",
+      "contractionType": "Isotônica Vertical",
+      "physicalCapacities": [
+        "forca_maxima",
+        "estabilidade"
+      ],
+      "equipment": [
+        "barras_anilhas"
+      ],
+      "difficulty": "avancado",
+      "instructions": {
+        "initialPosition": "Segure a barra apoiada nos deltoides anteriores com mãos ligeiramente fora dos ombros. Glúteos travados e core firme.",
+        "execution": "Recue a cabeça levemente para a barra passar e empurre verticalmente até travar os cotovelos acima da cabeça com a barra alinhada à espinha.",
+        "finishing": "Desça controladamente até a altura das clavículas."
+      },
+      "breathingCues": "Inspire antes de empurrar, expire ao ultrapassar o topo da cabeça.",
+      "commonMistakes": [
+        "Hiperestender a lombar inclinando as costas para trás simulando supino inclinado."
+      ],
+      "coachCues": [
+        "Aperte as nádegas e empurre a cabeça pela janela quando a barra passar pela testa."
+      ],
+      "progressions": [
+        "Push Press com impulso de pernas para cargas maiores"
+      ],
+      "regressions": [
+        "Desenvolvimento com Halteres Sentado no banco 75°"
+      ],
+      "variations": [
+        "Desenvolvimento Unilateral com Kettlebell"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "3 a 5 séries",
+        "recommendedRepsOrDuration": "5 a 8 reps",
+        "intensityGuidance": "75% a 85% de 1RM",
+        "restInterval": "90s a 150s",
+        "tempoCadence": "2-0-1-0"
+      },
+      "safetyNotes": "Exige boa mobilidade de flexão de ombro e extensão de coluna torácica.",
+      "sportsApplications": [
+        "Lutas",
+        "Cross Training",
+        "Halterofilismo"
+      ],
+      "tags": [
+        "ombro",
+        "deltoide",
+        "força pura",
+        "vertical"
+      ]
+    },
+    {
+      "id": "ex-kettlebell-swing",
+      "name": "Kettlebell Swing Russo / Hardstyle",
+      "alternativeNames": [
+        "Russian Kettlebell Swing",
+        "Swing com Kettlebell"
+      ],
+      "category": "funcional_potencia",
+      "primaryGoals": [
+        "potencia_explosao",
+        "condicionamento_geral"
+      ],
+      "secondaryGoals": [
+        "emagrecimento",
+        "atleta_hibrido",
+        "corrida_resistencia"
+      ],
+      "primaryMuscles": [
+        "gluteos",
+        "posteriores_coxa"
+      ],
+      "secondaryMuscles": [
+        "abdomen_core",
+        "costas",
+        "antebraco_pegada"
+      ],
+      "movementPattern": "dobradica_quadril",
+      "contractionType": "Balística Cíclica de Extensão de Quadril",
+      "physicalCapacities": [
+        "potencia",
+        "capacidade_anaerobica",
+        "estabilidade"
+      ],
+      "equipment": [
+        "kettlebells"
+      ],
+      "difficulty": "intermediario",
+      "instructions": {
+        "initialPosition": "Kettlebell no chão cerca de 30cm à sua frente. Pés mais largos que os ombros. Flexione o quadril como num snap de futebol americano e puxe a alça para trás entre as pernas.",
+        "execution": "Dispare o quadril para frente com máxima contração de glúteos estendendo os joelhos, projetando o kettlebell até a altura do peito pelo impulso do quadril.",
+        "finishing": "Deixe o kettlebell cair e guie-o de volta para a dobra do quadril sem agachar."
+      },
+      "breathingCues": "Expiração aguda e sibilante (\"Tss!\") no topo da extensão do quadril.",
+      "commonMistakes": [
+        "Agachar e levantar o kettlebell com a força dos braços e ombros.",
+        "Arredondar a coluna lombar na descida."
+      ],
+      "coachCues": [
+        "Os braços são apenas cordas e as mãos são ganchos: quem lança o peso é o quadril!"
+      ],
+      "progressions": [
+        "Kettlebell Swing Unilateral (com uma só mão)",
+        "Kettlebell Snatch"
+      ],
+      "regressions": [
+        "Deadlift com Kettlebell pesado no chão"
+      ],
+      "variations": [
+        "American Swing (acima da cabeça - exige cuidado de ombro)"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "4 a 5 séries",
+        "recommendedRepsOrDuration": "15 a 20 repetições dinâmicas",
+        "intensityGuidance": "Foco na velocidade da extensão de quadril",
+        "restInterval": "60s",
+        "tempoCadence": "Ritmo balístico fluido"
+      },
+      "safetyNotes": "Não deixe o kettlebell passar abaixo dos joelhos durante o pêndulo.",
+      "sportsApplications": [
+        "Lutas (MMA/Jiu-Jitsu)",
+        "Futebol",
+        "HYROX"
+      ],
+      "tags": [
+        "kettlebell",
+        "potência",
+        "cadeia posterior",
+        "metabólico"
+      ]
+    },
+    {
+      "id": "ex-mobilidade-quadril-9090",
+      "name": "Mobilidade de Quadril 90/90 com Rotação",
+      "alternativeNames": [
+        "90-90 Hip Flow",
+        "Transição 90/90"
+      ],
+      "category": "mobilidade",
+      "primaryGoals": [
+        "mobilidade_estabilidade",
+        "retorno_progressivo"
+      ],
+      "secondaryGoals": [
+        "desempenho_esportivo",
+        "corrida_resistencia"
+      ],
+      "primaryMuscles": [
+        "gluteos"
+      ],
+      "secondaryMuscles": [
+        "abdomen_core"
+      ],
+      "movementPattern": "rotacao_antirotacao",
+      "contractionType": "Alongamento Ativo e Mobilização Articular Fisiológica",
+      "physicalCapacities": [
+        "mobilidade",
+        "equilibrio"
+      ],
+      "equipment": [
+        "peso_corporal"
+      ],
+      "difficulty": "iniciante",
+      "instructions": {
+        "initialPosition": "Sente-se no solo. Posicione a perna da frente em 90° de flexão de quadril e joelho (rotação externa) e a perna de trás em 90° (rotação interna).",
+        "execution": "Mantenha o tronco ereto e incline-se suavemente sobre a perna dianteira por 5s. Em seguida, usando a força dos quadris sem apoio das mãos se possível, rode para o lado oposto invertendo as posições.",
+        "finishing": "Repita com ritmo controlado e respiração profunda."
+      },
+      "breathingCues": "Expire durante a inclinação sobre o quadril alongado.",
+      "commonMistakes": [
+        "Forçar a articulação do joelho ao invés de mover a cabeça do fêmur no acetábulo."
+      ],
+      "coachCues": [
+        "Mantenha a coluna longa e imagine a articulação do quadril girando livremente em óleo."
+      ],
+      "progressions": [
+        "90/90 Hip Lift com extensão de quadril ajoelhado"
+      ],
+      "regressions": [
+        "90/90 com as mãos apoiadas atrás no chão"
+      ],
+      "variations": [
+        "90/90 com alcance torácico cruzado"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "2 a 3 séries",
+        "recommendedRepsOrDuration": "8 a 10 transições lentas por lado",
+        "intensityGuidance": "Sem dor aguda, apenas sensação agradável de abertura articular",
+        "restInterval": "30s",
+        "tempoCadence": "Lento e consciente"
+      },
+      "safetyNotes": "Excelente para pré-treino de agachamento e pós-corrida.",
+      "sportsApplications": [
+        "Todos os esportes",
+        "Corrida de rua",
+        "Futebol",
+        "Lutas"
+      ],
+      "tags": [
+        "mobilidade",
+        "quadril",
+        "aquecimento",
+        "recuperação"
+      ]
+    },
+    {
+      "id": "ex-rosca-direta-barra-w",
+      "name": "Rosca Direta com Barra W",
+      "alternativeNames": [
+        "EZ-Bar Biceps Curl",
+        "Rosca Bíceps"
+      ],
+      "category": "musculacao",
+      "primaryGoals": [
+        "hipertrofia"
+      ],
+      "secondaryGoals": [
+        "resistencia_localizada"
+      ],
+      "primaryMuscles": [
+        "biceps"
+      ],
+      "secondaryMuscles": [
+        "antebraco_pegada"
+      ],
+      "movementPattern": "puxar_vertical",
+      "contractionType": "Isotônica Unijoint",
+      "physicalCapacities": [
+        "forca_relativa",
+        "resistencia_muscular"
+      ],
+      "equipment": [
+        "barras_anilhas"
+      ],
+      "difficulty": "iniciante",
+      "instructions": {
+        "initialPosition": "Em pé, segure a barra W na angulação semipronada/supinada confortável para os punhos. Cotovelos encostados ao lado das costelas.",
+        "execution": "Flexione os cotovelos erguendo a barra até a contração máxima do bíceps sem projetar os ombros para frente.",
+        "finishing": "Desça controladamente estendendo quase por completo os braços."
+      },
+      "breathingCues": "Expire ao subir e inspire ao descer.",
+      "commonMistakes": [
+        "Balançar o tronco para dar impulso na subida."
+      ],
+      "coachCues": [
+        "Cotovelos travados na lateral do corpo como dobradiças."
+      ],
+      "progressions": [
+        "Rosca com Barra Reta",
+        "Rosca 21"
+      ],
+      "regressions": [
+        "Rosca no Cabo com Barra W"
+      ],
+      "variations": [
+        "Rosca Martelo com Halteres",
+        "Rosca Scott"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "3 a 4 séries",
+        "recommendedRepsOrDuration": "8 a 12 reps",
+        "intensityGuidance": "RIR 1-2",
+        "restInterval": "60s",
+        "tempoCadence": "2-0-1-0"
+      },
+      "safetyNotes": "A barra W reduz o estresse sobre a articulação radioulnar distal.",
+      "sportsApplications": [
+        "Lutas",
+        "Ginástica"
+      ],
+      "tags": [
+        "braços",
+        "bíceps",
+        "hipertrofia"
+      ]
+    },
+    {
+      "id": "ex-triceps-testa-halteres",
+      "name": "Tríceps Testa com Halteres no Banco",
+      "alternativeNames": [
+        "Lying Dumbbell Triceps Extension",
+        "Skull Crusher"
+      ],
+      "category": "musculacao",
+      "primaryGoals": [
+        "hipertrofia"
+      ],
+      "secondaryGoals": [
+        "forca_maxima"
+      ],
+      "primaryMuscles": [
+        "triceps"
+      ],
+      "secondaryMuscles": [
+        "antebraco_pegada"
+      ],
+      "movementPattern": "empurrar_horizontal",
+      "contractionType": "Isotônica com estiramento da cabeça longa do tríceps",
+      "physicalCapacities": [
+        "forca_relativa"
+      ],
+      "equipment": [
+        "halteres"
+      ],
+      "difficulty": "intermediario",
+      "instructions": {
+        "initialPosition": "Deite-se no banco plano segurando halteres com pegada neutra e braços estendidos ligeiramente inclinados para trás em direção à cabeça.",
+        "execution": "Flexione apenas os cotovelos trazendo os halteres ao lado das orelhas sentindo o alongamento do tríceps.",
+        "finishing": "Estenda os cotovelos retornando à posição inicial inclinada."
+      },
+      "breathingCues": "Inspire na descida e expire ao estender os braços.",
+      "commonMistakes": [
+        "Abrir os cotovelos para fora durante a descida."
+      ],
+      "coachCues": [
+        "Braços imóveis, apenas o antebraço se move."
+      ],
+      "progressions": [
+        "Tríceps Testa no Banco Declinado com Barra"
+      ],
+      "regressions": [
+        "Tríceps Pulley na Corda"
+      ],
+      "variations": [
+        "Tríceps Francês Sentado"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "3 séries",
+        "recommendedRepsOrDuration": "10 a 12 reps",
+        "intensityGuidance": "RIR 1-2",
+        "restInterval": "60s",
+        "tempoCadence": "3-0-1-0"
+      },
+      "safetyNotes": "Nunca use cargas além do controle técnico para não sobrecarregar o tendão tricipital.",
+      "sportsApplications": [
+        "Basquete (arremesso)",
+        "Vôlei"
+      ],
+      "tags": [
+        "tríceps",
+        "braço",
+        "isolamento"
+      ]
+    },
+    {
+      "id": "ex-tiros-agilidade-pro-agility",
+      "name": "Teste & Treino de Agilidade 5-10-5 (Pro-Agility Shuttle)",
+      "alternativeNames": [
+        "Short Shuttle Run",
+        "5-10-5 Drill"
+      ],
+      "category": "funcional_potencia",
+      "primaryGoals": [
+        "desempenho_esportivo"
+      ],
+      "secondaryGoals": [
+        "potencia_explosao",
+        "condicionamento_geral"
+      ],
+      "primaryMuscles": [
+        "quadriceps",
+        "gluteos",
+        "panturrilhas"
+      ],
+      "secondaryMuscles": [
+        "abdomen_core"
+      ],
+      "movementPattern": "multiplanar",
+      "contractionType": "Aceleração, Desaceleração e Mudança de Direção (COD)",
+      "physicalCapacities": [
+        "agilidade",
+        "desaceleracao",
+        "aceleracao"
+      ],
+      "equipment": [
+        "outros"
+      ],
+      "difficulty": "avancado",
+      "instructions": {
+        "initialPosition": "Posicione 3 cones em linha reta separados por 5 jardas (4,5 metros). Comece no cone central em base de três pontos.",
+        "execution": "Dispare para a direita 5 jardas, toque a linha com a mão direita, mude de direção imediatamente e corra 10 jardas para a esquerda, toque a linha e termine com sprint de 5 jardas passando pelo cone central.",
+        "finishing": "Freie de forma equilibrada após cruzar a linha final."
+      },
+      "breathingCues": "Respiração curta e enérgica.",
+      "commonMistakes": [
+        "Girar o quadril muito cedo perdendo tração do pé no solo.",
+        "Aterrissar muito alto sem baixar o centro de gravidade."
+      ],
+      "coachCues": [
+        "Afunde o quadril nas viradas e exploda como uma mola."
+      ],
+      "progressions": [
+        "Treino com reação visual a estímulo do treinador"
+      ],
+      "regressions": [
+        "Shuttle 5m + 5m em velocidade moderada"
+      ],
+      "variations": [
+        "L-Drill (3 cones em formato de L)",
+        "T-Test"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "4 a 6 repetições",
+        "recommendedRepsOrDuration": "1 corrida completa cronometrada por repetição",
+        "intensityGuidance": "100% de intensidade",
+        "restInterval": "90s entre repetições",
+        "tempoCadence": "Máxima velocidade"
+      },
+      "safetyNotes": "Certifique-se de que o piso não seja escorregadio.",
+      "sportsApplications": [
+        "Futebol",
+        "Basquete",
+        "Futsal",
+        "Tênis"
+      ],
+      "tags": [
+        "agilidade",
+        "mudança de direção",
+        "futebol",
+        "sprint"
+      ]
+    },
+    {
+      "id": "ex-remo-ergometrico-concept2",
+      "name": "Remo Ergométrico (Concept2 Rower)",
+      "alternativeNames": [
+        "Indoor Rowing",
+        "Tiros de Remo 500m / 2000m"
+      ],
+      "category": "cardio_locomocao",
+      "primaryGoals": [
+        "atleta_hibrido",
+        "condicionamento_geral"
+      ],
+      "secondaryGoals": [
+        "emagrecimento",
+        "resistencia_localizada",
+        "desempenho_esportivo"
+      ],
+      "primaryMuscles": [
+        "corpo_inteiro",
+        "costas",
+        "quadriceps"
+      ],
+      "secondaryMuscles": [
+        "gluteos",
+        "biceps",
+        "abdomen_core"
+      ],
+      "movementPattern": "puxar_horizontal",
+      "contractionType": "Cíclico de Corpo Inteiro",
+      "physicalCapacities": [
+        "resistencia_aerobica",
+        "capacidade_anaerobica",
+        "potencia"
+      ],
+      "equipment": [
+        "remo_ergometrico"
+      ],
+      "difficulty": "intermediario",
+      "instructions": {
+        "initialPosition": "Pés afivelados com calcanhares firmes. Segure o manete com pegada pronada relaxada. Joelhos flexionados, canelas verticais e tronco inclinado para frente a 11 horas.",
+        "execution": "Empurre com as pernas (60% do esforço), balance o quadril para 1 hora (20%) e finalize puxando os braços até o esterno (20%).",
+        "finishing": "Recupere na ordem inversa: estenda braços, incline o tronco à frente e depois deslize as pernas."
+      },
+      "breathingCues": "Expire no final da remada e inspire no retorno de recuperação.",
+      "commonMistakes": [
+        "Puxar com os braços antes de empurrar as pernas.",
+        "Flexionar os joelhos antes dos braços ultrapassarem as pernas no retorno."
+      ],
+      "coachCues": [
+        "Pernas, tronco, braços — braços, tronco, pernas."
+      ],
+      "progressions": [
+        "Intervalado de 4x 500m com 1:30 de descanso no ritmo máximo"
+      ],
+      "regressions": [
+        "Remo contínuo em ritmo suave (20-22 remadas por minuto)"
+      ],
+      "variations": [
+        "Treino de ritmo de 2.000m"
+      ],
+      "prescriptiveParameters": {
+        "recommendedSets": "4 a 6 tiros de 500m ou 20 min contínuo",
+        "recommendedRepsOrDuration": "500m por tiro ou 5.000m total",
+        "intensityGuidance": "Pace médio /500m controlado ou Zona 4",
+        "restInterval": "60s a 90s",
+        "tempoCadence": "24 a 30 SPM (strokes per minute)"
+      },
+      "safetyNotes": "Mantenha a lombar protegida sem arquear excessivamente na fase de ataque.",
+      "sportsApplications": [
+        "HYROX",
+        "Cross Training",
+        "Remo de Competição",
+        "Lutas"
+      ],
+      "tags": [
+        "remo",
+        "cardio",
+        "corpo inteiro",
+        "híbrido"
+      ]
+    }
+  ],
+  "programs": [
+    {
+      "id": "prog-hipertrofia-upper-lower",
+      "title": "Periodização Hipertrofia Upper/Lower 4x",
+      "description": "Programa focado em hipertrofia de alto rendimento, com controle de volume semanal e ênfase no complexo do peitoral e dorsal.",
+      "athleteId": "ath-lucas-silva",
+      "athleteName": "Lucas Silva",
+      "isTemplate": false,
+      "category": "hipertrofia",
+      "splitType": "UpperLower",
+      "level": "avancado",
+      "weeklyFrequency": 4,
+      "startDate": "2026-09-01",
+      "endDate": "2026-11-30",
+      "createdAt": "2026-09-01T10:00:00Z",
+      "updatedAt": "2026-10-12T14:00:00Z",
+      "sessions": [
+        {
+          "id": "sess-upper-a",
+          "title": "Treino A - Membros Superiores (Foco Peitoral & Empurrar)",
+          "dayOfWeek": "Segunda-feira",
+          "focusGoal": "hipertrofia",
+          "estimatedDurationMinutes": 70,
+          "notes": "Aquecimento específico com manguito e mobilidade de ombros antes das séries de trabalho pesado.",
+          "exercises": [
+            {
+              "id": "pe-1",
+              "exerciseId": "ex-mobilidade-quadril-9090",
+              "exerciseName": "Mobilidade de Ombros e Torácica com Elástico",
+              "section": "aquecimento",
+              "sets": 2,
+              "repsOrDuration": "12 repetições",
+              "loadPrescription": "Elástico leve",
+              "intensityMethod": "rpe",
+              "intensityValue": "RPE 5",
+              "restSeconds": 30,
+              "tempo": "Controlado",
+              "coachNotes": "Aquecimento articular e ativação do manguito rotador."
+            },
+            {
+              "id": "pe-2",
+              "exerciseId": "ex-supino-reto-barra",
+              "exerciseName": "Supino Reto com Barra Olímpica",
+              "section": "principal",
+              "grouping": "individual",
+              "sets": 4,
+              "repsOrDuration": "6 a 8 reps",
+              "loadPrescription": "95 kg (80% 1RM)",
+              "intensityMethod": "pct_1rm",
+              "intensityValue": "80% 1RM (RIR 1-2)",
+              "restSeconds": 120,
+              "tempo": "3-0-1-0",
+              "coachNotes": "Pés cravados no chão, arco fisiológico firme, escápulas travadas no banco.",
+              "alternativeExerciseName": "Supino Reto com Halteres Pesados"
+            },
+            {
+              "id": "pe-3",
+              "exerciseId": "ex-supino-inclinado-halteres",
+              "exerciseName": "Supino Inclinado com Halteres",
+              "section": "principal",
+              "grouping": "individual",
+              "sets": 3,
+              "repsOrDuration": "8 a 10 reps",
+              "loadPrescription": "32 kg cada mão",
+              "intensityMethod": "rir",
+              "intensityValue": "RIR 1",
+              "restSeconds": 90,
+              "tempo": "2-1-1-0",
+              "coachNotes": "Desça profundo até sentir estiramento da porção clavicular."
+            },
+            {
+              "id": "pe-4",
+              "exerciseId": "ex-remada-curvada-barra",
+              "exerciseName": "Remada Curvada com Barra",
+              "section": "principal",
+              "grouping": "individual",
+              "sets": 4,
+              "repsOrDuration": "8 a 10 reps",
+              "loadPrescription": "80 kg",
+              "intensityMethod": "carga",
+              "intensityValue": "RIR 2",
+              "restSeconds": 90,
+              "tempo": "2-1-1-0",
+              "coachNotes": "Puxe no umbigo apertando as costas no topo."
+            },
+            {
+              "id": "pe-5",
+              "exerciseId": "ex-crucifixo-crossover",
+              "exerciseName": "Crucifixo no Cabo / Cross-Over Polia Média",
+              "section": "principal",
+              "grouping": "superset",
+              "groupTag": "A1",
+              "sets": 3,
+              "repsOrDuration": "12 a 15 reps",
+              "loadPrescription": "15 kg cada lado",
+              "intensityMethod": "rpe",
+              "intensityValue": "RPE 9 (Falha técnica)",
+              "restSeconds": 15,
+              "tempo": "2-0-1-1",
+              "coachNotes": "Isometria de 1 segundo no pico de contração."
+            },
+            {
+              "id": "pe-6",
+              "exerciseId": "ex-triceps-testa-halteres",
+              "exerciseName": "Tríceps Testa com Halteres no Banco",
+              "section": "principal",
+              "grouping": "superset",
+              "groupTag": "A2",
+              "sets": 3,
+              "repsOrDuration": "10 a 12 reps",
+              "loadPrescription": "14 kg cada mão",
+              "intensityMethod": "rir",
+              "intensityValue": "RIR 1",
+              "restSeconds": 75,
+              "tempo": "3-0-1-0",
+              "coachNotes": "Cotovelos fechados apontando para o teto."
+            }
+          ]
+        },
+        {
+          "id": "sess-lower-a",
+          "title": "Treino B - Membros Inferiores (Quadríceps & Glúteos)",
+          "dayOfWeek": "Terça-feira",
+          "focusGoal": "hipertrofia",
+          "estimatedDurationMinutes": 70,
+          "notes": "Trabalho pesado de agachamento e fortalecimento de cadeia posterior.",
+          "exercises": [
+            {
+              "id": "pe-7",
+              "exerciseId": "ex-mobilidade-quadril-9090",
+              "exerciseName": "Mobilidade de Quadril 90/90 com Rotação",
+              "section": "aquecimento",
+              "sets": 2,
+              "repsOrDuration": "8 repetições por lado",
+              "loadPrescription": "Peso corporal",
+              "intensityMethod": "rpe",
+              "intensityValue": "RPE 5",
+              "restSeconds": 30,
+              "tempo": "Lento e consciente",
+              "coachNotes": "Abertura articular do fêmur antes de agachar."
+            },
+            {
+              "id": "pe-8",
+              "exerciseId": "ex-agachamento-livre-barra",
+              "exerciseName": "Agachamento Livre com Barra (Back Squat)",
+              "section": "principal",
+              "sets": 4,
+              "repsOrDuration": "6 a 8 reps",
+              "loadPrescription": "120 kg",
+              "intensityMethod": "pct_1rm",
+              "intensityValue": "78% 1RM",
+              "restSeconds": 150,
+              "tempo": "3-1-1-0",
+              "coachNotes": "Desça até a paralela com controle firme e suba expulsando o ar."
+            },
+            {
+              "id": "pe-9",
+              "exerciseId": "ex-levantamento-terra-romeno-rdl",
+              "exerciseName": "Levantamento Terra Romeno (RDL)",
+              "section": "principal",
+              "sets": 3,
+              "repsOrDuration": "8 a 10 reps",
+              "loadPrescription": "100 kg",
+              "intensityMethod": "carga",
+              "intensityValue": "RIR 2",
+              "restSeconds": 90,
+              "tempo": "3-0-1-0",
+              "coachNotes": "Sinta o estiramento vigoroso dos isquiotibiais."
+            },
+            {
+              "id": "pe-10",
+              "exerciseId": "ex-bulgaro-halteres",
+              "exerciseName": "Agachamento Búlgaro com Halteres",
+              "section": "principal",
+              "sets": 3,
+              "repsOrDuration": "10 reps por perna",
+              "loadPrescription": "20 kg cada mão",
+              "intensityMethod": "rir",
+              "intensityValue": "RIR 1",
+              "restSeconds": 75,
+              "tempo": "2-0-1-0",
+              "coachNotes": "Carga unilateral para equilíbrio e glúteo médio."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prog-corrida-performance",
+      "title": "Preparação Específica 10k & Meia Maratona",
+      "description": "Periodização mista com sessões intervaladas de velocidade, corridas contínuas em ritmo de limiar e fortalecimento muscular de suporte.",
+      "athleteId": "ath-mariana-costa",
+      "athleteName": "Mariana Costa",
+      "isTemplate": false,
+      "category": "corrida_resistencia",
+      "splitType": "Corrida",
+      "level": "avancado",
+      "weeklyFrequency": 4,
+      "startDate": "2026-08-15",
+      "endDate": "2026-12-15",
+      "createdAt": "2026-08-15T09:00:00Z",
+      "updatedAt": "2026-10-14T08:00:00Z",
+      "sessions": [
+        {
+          "id": "sess-run-tiros",
+          "title": "Sessão 1 - Tiros de Pista / Intervalado de VO2máx",
+          "dayOfWeek": "Terça-feira",
+          "focusGoal": "corrida_resistencia",
+          "estimatedDurationMinutes": 55,
+          "notes": "Pista de atletismo ou esteira plana. Aquecer 10 min trote Z2 antes dos tiros.",
+          "exercises": [
+            {
+              "id": "pe-run-1",
+              "exerciseId": "ex-tiros-intervalados-corrida",
+              "exerciseName": "Tiros Intervalados de Alta Intensidade (HIIT 400m)",
+              "section": "principal",
+              "sets": 8,
+              "repsOrDuration": "400 metros por tiro",
+              "loadPrescription": "Pace Alvo: 3:55 min/km",
+              "intensityMethod": "pace",
+              "intensityValue": "Pace 3:55 min/km (Zona 5)",
+              "restSeconds": 90,
+              "tempo": "Cadência ~182 SPM",
+              "distanceMeters": 400,
+              "paceTarget": "3:55 min/km",
+              "heartRateZone": "Zona 5 (92-96% FC Máx)",
+              "coachNotes": "Mantenha consistência absoluta entre o 1º e o 8º tiro."
+            }
+          ]
+        },
+        {
+          "id": "sess-run-tempo",
+          "title": "Sessão 2 - Corrida Contínua de Ritmo (Tempo Run Limiar)",
+          "dayOfWeek": "Quinta-feira",
+          "focusGoal": "corrida_resistencia",
+          "estimatedDurationMinutes": 50,
+          "notes": "Esforço sustentado na zona de limiar de lactato (confortavelmente duro).",
+          "exercises": [
+            {
+              "id": "pe-run-2",
+              "exerciseId": "ex-corrida-ritmo-tempo-run",
+              "exerciseName": "Corrida Contínua de Ritmo (Tempo Run / Limiar)",
+              "section": "principal",
+              "sets": 1,
+              "repsOrDuration": "30 minutos sustentados",
+              "loadPrescription": "Pace Alvo: 4:40 min/km",
+              "intensityMethod": "zona_fc",
+              "intensityValue": "Zona 4 (85-88% FC Máx)",
+              "restSeconds": 0,
+              "tempo": "Pace constante",
+              "distanceMeters": 6400,
+              "paceTarget": "4:40 min/km",
+              "heartRateZone": "Zona 4",
+              "coachNotes": "Foco na postura ereta, respiração ritmada 2x2 e aterrissagem sob o centro de gravidade."
+            }
+          ]
+        },
+        {
+          "id": "sess-run-forca",
+          "title": "Sessão 3 - Musculação & Força Preventiva para Corredores",
+          "dayOfWeek": "Sábado",
+          "focusGoal": "forca_maxima",
+          "estimatedDurationMinutes": 45,
+          "notes": "Fortalecimento de quadril, isquiotibiais e core para ganho de economia de corrida e blindagem contra lesões.",
+          "exercises": [
+            {
+              "id": "pe-run-3",
+              "exerciseId": "ex-levantamento-terra-romeno-rdl",
+              "exerciseName": "Levantamento Terra Romeno (RDL)",
+              "section": "principal",
+              "sets": 3,
+              "repsOrDuration": "10 reps",
+              "loadPrescription": "50 kg com barra",
+              "intensityMethod": "rir",
+              "intensityValue": "RIR 2",
+              "restSeconds": 75,
+              "tempo": "3-0-1-0",
+              "coachNotes": "Fortalece os isquiotibiais para desacelerar a perna no final da fase de balanço."
+            },
+            {
+              "id": "pe-run-4",
+              "exerciseId": "ex-bulgaro-halteres",
+              "exerciseName": "Agachamento Búlgaro com Halteres",
+              "section": "principal",
+              "sets": 3,
+              "repsOrDuration": "10 reps por lado",
+              "loadPrescription": "12 kg cada mão",
+              "intensityMethod": "rir",
+              "intensityValue": "RIR 2",
+              "restSeconds": 60,
+              "tempo": "2-0-1-0",
+              "coachNotes": "Estabilidade pélvica de passada unipodal."
+            },
+            {
+              "id": "pe-run-5",
+              "exerciseId": "ex-pallof-press-cabo",
+              "exerciseName": "Pallof Press no Cabo / Elástico",
+              "section": "principal",
+              "sets": 3,
+              "repsOrDuration": "12 reps por lado",
+              "loadPrescription": "Elástico médio",
+              "intensityMethod": "rpe",
+              "intensityValue": "RPE 7",
+              "restSeconds": 45,
+              "tempo": "2-2-2-0",
+              "coachNotes": "Estabilidade do tronco contra rotação parasita durante a corrida."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prog-hibrido-hyrox",
+      "title": "Protocolo Híbrido: Força Máxima & Endurance de Alta Intensidade",
+      "description": "Periodização concorrente integrando levantamentos pesados com corrida e estações de alta demanda cardiovascular.",
+      "athleteId": "ath-rodrigo-mendes",
+      "athleteName": "Rodrigo Mendes",
+      "isTemplate": false,
+      "category": "atleta_hibrido",
+      "splitType": "Hibrido",
+      "level": "atleta",
+      "weeklyFrequency": 5,
+      "startDate": "2026-07-01",
+      "endDate": "2026-12-01",
+      "createdAt": "2026-07-01T14:00:00Z",
+      "updatedAt": "2026-10-13T20:00:00Z",
+      "sessions": [
+        {
+          "id": "sess-hib-1",
+          "title": "Sessão 1 - Força Bruta & Capacidade Funcional",
+          "dayOfWeek": "Segunda-feira",
+          "focusGoal": "atleta_hibrido",
+          "estimatedDurationMinutes": 80,
+          "notes": "Levantamentos pesados no início seguidos de transporte de cargas.",
+          "exercises": [
+            {
+              "id": "pe-hib-1",
+              "exerciseId": "ex-agachamento-livre-barra",
+              "exerciseName": "Agachamento Livre com Barra (Back Squat)",
+              "section": "principal",
+              "sets": 5,
+              "repsOrDuration": "5 reps",
+              "loadPrescription": "140 kg (85% 1RM)",
+              "intensityMethod": "pct_1rm",
+              "intensityValue": "85% 1RM",
+              "restSeconds": 150,
+              "tempo": "3-0-1-0",
+              "coachNotes": "Manter velocidade concêntrica alta."
+            },
+            {
+              "id": "pe-hib-2",
+              "exerciseId": "ex-farmer-walk-caminhada-fazendeiro",
+              "exerciseName": "Caminhada do Fazendeiro (Farmer's Walk)",
+              "section": "principal",
+              "sets": 4,
+              "repsOrDuration": "40 metros",
+              "loadPrescription": "36 kg cada mão",
+              "intensityMethod": "rpe",
+              "intensityValue": "RPE 9",
+              "restSeconds": 90,
+              "tempo": "Passo rápido e firme",
+              "coachNotes": "Coluna neutra, pegada de ferro."
+            }
+          ]
+        },
+        {
+          "id": "sess-hib-2",
+          "title": "Sessão 2 - Endurance Metabólica & Trenó (HYROX Simulação)",
+          "dayOfWeek": "Quarta-feira",
+          "focusGoal": "atleta_hibrido",
+          "estimatedDurationMinutes": 75,
+          "notes": "Combinação concorrente de tiros de remo e empurrão de trenó pesado.",
+          "exercises": [
+            {
+              "id": "pe-hib-3",
+              "exerciseId": "ex-remo-ergometrico-concept2",
+              "exerciseName": "Remo Ergométrico (Concept2 Rower)",
+              "section": "principal",
+              "sets": 4,
+              "repsOrDuration": "500 metros",
+              "loadPrescription": "Pace: 1:38 /500m",
+              "intensityMethod": "pace",
+              "intensityValue": "Pace 1:38 /500m",
+              "restSeconds": 90,
+              "tempo": "28 SPM",
+              "coachNotes": "Transição rápida para o trenó."
+            },
+            {
+              "id": "pe-hib-4",
+              "exerciseId": "ex-sled-push-treno",
+              "exerciseName": "Empurrão de Trenó Pesado (Sled Push)",
+              "section": "principal",
+              "sets": 4,
+              "repsOrDuration": "25 metros",
+              "loadPrescription": "120 kg de anilhas",
+              "intensityMethod": "rpe",
+              "intensityValue": "RPE 9.5 (Esforço Máximo)",
+              "restSeconds": 120,
+              "tempo": "Aceleração contínua",
+              "coachNotes": "Braços retos, impulsione com o quadril."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prog-futebol-desempenho",
+      "title": "Preparação Física Específica para Futebol de Campo",
+      "description": "Desenvolvimento de potência de membros inferiores, capacidade de aceleração rápida, desaceleração segura e mudanças de direção.",
+      "athleteId": "ath-gabriel-santos",
+      "athleteName": "Gabriel Santos",
+      "isTemplate": false,
+      "category": "desempenho_esportivo",
+      "splitType": "Esportivo",
+      "level": "atleta",
+      "weeklyFrequency": 3,
+      "startDate": "2026-09-10",
+      "endDate": "2026-12-20",
+      "createdAt": "2026-09-10T11:00:00Z",
+      "updatedAt": "2026-10-14T11:00:00Z",
+      "sessions": [
+        {
+          "id": "sess-fut-1",
+          "title": "Sessão 1 - Potência, Aceleração & Agilidade 5-10-5",
+          "dayOfWeek": "Segunda-feira",
+          "focusGoal": "desempenho_esportivo",
+          "estimatedDurationMinutes": 65,
+          "notes": "Realizar no início da semana para máximo frescor neuromuscular.",
+          "exercises": [
+            {
+              "id": "pe-fut-1",
+              "exerciseId": "ex-salto-vertical-cmj",
+              "exerciseName": "Salto Vertical com Contramovimento (CMJ)",
+              "section": "principal",
+              "sets": 4,
+              "repsOrDuration": "4 saltos com esforço máximo",
+              "loadPrescription": "Peso corporal",
+              "intensityMethod": "rpe",
+              "intensityValue": "100% de esforço e altura",
+              "restSeconds": 90,
+              "tempo": "Explosivo",
+              "coachNotes": "Foco na impulsão vertical rápida e absorção macia na aterrissagem."
+            },
+            {
+              "id": "pe-fut-2",
+              "exerciseId": "ex-tiros-agilidade-pro-agility",
+              "exerciseName": "Teste & Treino de Agilidade 5-10-5 (Pro-Agility Shuttle)",
+              "section": "principal",
+              "sets": 5,
+              "repsOrDuration": "1 repetição completa por série",
+              "loadPrescription": "Peso corporal",
+              "intensityMethod": "rpe",
+              "intensityValue": "Velocidade Máxima (RPE 10)",
+              "restSeconds": 90,
+              "tempo": "Máxima velocidade",
+              "coachNotes": "Baixe o centro de gravidade no toque de cada cone para mudar de direção sem perder tração."
+            },
+            {
+              "id": "pe-fut-3",
+              "exerciseId": "ex-sled-push-treno",
+              "exerciseName": "Empurrão de Trenó Pesado (Sled Push)",
+              "section": "principal",
+              "sets": 4,
+              "repsOrDuration": "15 metros (Sprint curto de arrancada)",
+              "loadPrescription": "60 kg no trenó",
+              "intensityMethod": "rpe",
+              "intensityValue": "RPE 9 (Aceleração nos primeiros metros)",
+              "restSeconds": 90,
+              "tempo": "Explosivo",
+              "coachNotes": "Imita a fase de aceleração e ângulo corporal do primeiro sprint no gramado."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tmpl-hipertrofia-abcd",
+      "title": "Modelo Master: Hipertrofia ABCD Avançada",
+      "description": "Template de alta densidade muscular dividido em Peito/Tríceps, Costas/Bíceps, Pernas Completo e Ombros/Braços.",
+      "isTemplate": true,
+      "category": "hipertrofia",
+      "splitType": "ABCD",
+      "level": "avancado",
+      "weeklyFrequency": 4,
+      "createdAt": "2026-05-01T08:00:00Z",
+      "updatedAt": "2026-09-01T08:00:00Z",
+      "sessions": [
+        {
+          "id": "tmpl-sess-a",
+          "title": "Treino A - Peitoral & Tríceps",
+          "focusGoal": "hipertrofia",
+          "estimatedDurationMinutes": 65,
+          "notes": "Volume planejado de 14 séries de peitoral.",
+          "exercises": [
+            {
+              "id": "tpe-1",
+              "exerciseId": "ex-supino-reto-barra",
+              "exerciseName": "Supino Reto com Barra Olímpica",
+              "section": "principal",
+              "sets": 4,
+              "repsOrDuration": "8 a 10 reps",
+              "loadPrescription": "75-80% 1RM",
+              "intensityMethod": "rir",
+              "intensityValue": "RIR 1-2",
+              "restSeconds": 90,
+              "tempo": "3-0-1-0"
+            },
+            {
+              "id": "tpe-2",
+              "exerciseId": "ex-supino-inclinado-halteres",
+              "exerciseName": "Supino Inclinado com Halteres",
+              "section": "principal",
+              "sets": 3,
+              "repsOrDuration": "10 a 12 reps",
+              "loadPrescription": "Halteres moderados a pesados",
+              "intensityMethod": "rir",
+              "intensityValue": "RIR 1",
+              "restSeconds": 75,
+              "tempo": "2-1-1-0"
+            },
+            {
+              "id": "tpe-3",
+              "exerciseId": "ex-crucifixo-crossover",
+              "exerciseName": "Crucifixo no Cabo / Cross-Over Polia Média",
+              "section": "principal",
+              "sets": 3,
+              "repsOrDuration": "12 a 15 reps",
+              "loadPrescription": "Carga moderada para queimação",
+              "intensityMethod": "rpe",
+              "intensityValue": "RPE 9",
+              "restSeconds": 60,
+              "tempo": "2-0-1-1"
+            },
+            {
+              "id": "tpe-4",
+              "exerciseId": "ex-triceps-testa-halteres",
+              "exerciseName": "Tríceps Testa com Halteres no Banco",
+              "section": "principal",
+              "sets": 3,
+              "repsOrDuration": "10 a 12 reps",
+              "loadPrescription": "Halteres médios",
+              "intensityMethod": "rir",
+              "intensityValue": "RIR 1-2",
+              "restSeconds": 60,
+              "tempo": "3-0-1-0"
+            }
+          ]
+        },
+        {
+          "id": "tmpl-sess-c",
+          "title": "Treino C - Membros Inferiores & Glúteos",
+          "focusGoal": "hipertrofia",
+          "estimatedDurationMinutes": 70,
+          "notes": "Construção maciça de pernas.",
+          "exercises": [
+            {
+              "id": "tpe-5",
+              "exerciseId": "ex-agachamento-livre-barra",
+              "exerciseName": "Agachamento Livre com Barra (Back Squat)",
+              "section": "principal",
+              "sets": 4,
+              "repsOrDuration": "8 a 10 reps",
+              "loadPrescription": "75% 1RM",
+              "intensityMethod": "rir",
+              "intensityValue": "RIR 2",
+              "restSeconds": 120,
+              "tempo": "3-1-1-0"
+            },
+            {
+              "id": "tpe-6",
+              "exerciseId": "ex-levantamento-terra-romeno-rdl",
+              "exerciseName": "Levantamento Terra Romeno (RDL)",
+              "section": "principal",
+              "sets": 3,
+              "repsOrDuration": "10 reps",
+              "loadPrescription": "Carga moderada/alta",
+              "intensityMethod": "rir",
+              "intensityValue": "RIR 2",
+              "restSeconds": 90,
+              "tempo": "3-0-1-0"
+            },
+            {
+              "id": "tpe-7",
+              "exerciseId": "ex-bulgaro-halteres",
+              "exerciseName": "Agachamento Búlgaro com Halteres",
+              "section": "principal",
+              "sets": 3,
+              "repsOrDuration": "10 reps por perna",
+              "loadPrescription": "Halteres médios",
+              "intensityMethod": "rir",
+              "intensityValue": "RIR 1",
+              "restSeconds": 75,
+              "tempo": "2-0-1-0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tmpl-corrida-10k-base",
+      "title": "Modelo Master: Periodização de Corrida 10km (Sub-50min)",
+      "description": "Planejamento para atletas amadores que buscam quebrar a barreira dos 50 minutos nos 10km com treinos de velocidade e resistência.",
+      "isTemplate": true,
+      "category": "corrida_resistencia",
+      "splitType": "Corrida",
+      "level": "intermediario",
+      "weeklyFrequency": 3,
+      "createdAt": "2026-06-10T09:00:00Z",
+      "updatedAt": "2026-08-01T09:00:00Z",
+      "sessions": [
+        {
+          "id": "tmpl-run-sess-1",
+          "title": "Tiros de 400m na Pista",
+          "focusGoal": "corrida_resistencia",
+          "estimatedDurationMinutes": 50,
+          "notes": "8x 400m em ritmo de 4:10 min/km com 90s trote Z1.",
+          "exercises": [
+            {
+              "id": "tpe-r1",
+              "exerciseId": "ex-tiros-intervalados-corrida",
+              "exerciseName": "Tiros Intervalados de Alta Intensidade (HIIT 400m)",
+              "section": "principal",
+              "sets": 8,
+              "repsOrDuration": "400m",
+              "loadPrescription": "Pace 4:10 min/km",
+              "intensityMethod": "pace",
+              "intensityValue": "Pace 4:10 min/km",
+              "restSeconds": 90,
+              "tempo": "Alta cadência",
+              "paceTarget": "4:10 min/km",
+              "heartRateZone": "Zona 5"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "assessments": [
+    {
+      "id": "asmt-lucas-1",
+      "athleteId": "ath-lucas-silva",
+      "athleteName": "Lucas Silva",
+      "date": "2026-04-10",
+      "type": "completa",
+      "measurements": {
+        "weightKg": 84.5,
+        "heightCm": 180,
+        "bmi": 26.1,
+        "bodyFatPercentageEstimated": 14.8,
+        "bodyFatProtocol": "Dobras Cutâneas Pollock 7 dobras (Estimativa antropométrica)",
+        "chestCircumferenceCm": 104,
+        "waistCircumferenceCm": 82,
+        "hipCircumferenceCm": 99,
+        "rightArmRelaxedCm": 38.5,
+        "rightArmFlexedCm": 41.2,
+        "rightThighCm": 61.5,
+        "calvesCm": 39
+      },
+      "performanceTests": {
+        "benchPress1RMKg": 108,
+        "squat1RMKg": 140,
+        "deadlift1RMKg": 175,
+        "verticalJumpCm": 52
+      },
+      "mobilityNotes": "Boa mobilidade geral, leve encurtamento de peitoral menor e rotação interna de ombros.",
+      "coachInterpretation": "Avaliação inicial de base. Ótimo nível de força neural no supino e agachamento. Foco na especialização hipertrófica de tórax e deltoide."
+    },
+    {
+      "id": "asmt-lucas-2",
+      "athleteId": "ath-lucas-silva",
+      "athleteName": "Lucas Silva",
+      "date": "2026-10-05",
+      "type": "completa",
+      "measurements": {
+        "weightKg": 86.8,
+        "heightCm": 180,
+        "bmi": 26.8,
+        "bodyFatPercentageEstimated": 13.5,
+        "bodyFatProtocol": "Dobras Cutâneas Pollock 7 dobras (Estimativa antropométrica)",
+        "chestCircumferenceCm": 108.5,
+        "waistCircumferenceCm": 81.5,
+        "hipCircumferenceCm": 101,
+        "rightArmRelaxedCm": 39.8,
+        "rightArmFlexedCm": 43,
+        "rightThighCm": 63.2,
+        "calvesCm": 39.5
+      },
+      "performanceTests": {
+        "benchPress1RMKg": 120,
+        "squat1RMKg": 155,
+        "deadlift1RMKg": 190,
+        "verticalJumpCm": 56
+      },
+      "mobilityNotes": "Melhora notável na extensão torácica e retração escapular após inclusão sistemática do trabalho de mobilidade 90/90.",
+      "coachInterpretation": "Evolução expressiva em 6 meses: ganho de 2.3 kg de massa magra com redução percentual de gordura. Força máxima de supino subiu de 108kg para 120kg (+11.1%)."
+    },
+    {
+      "id": "asmt-mariana-1",
+      "athleteId": "ath-mariana-costa",
+      "athleteName": "Mariana Costa",
+      "date": "2026-03-15",
+      "type": "corrida_cardio",
+      "measurements": {
+        "weightKg": 58.2,
+        "heightCm": 167,
+        "bmi": 20.9,
+        "bodyFatPercentageEstimated": 19.2,
+        "bodyFatProtocol": "Bioimpedância tetrapolar médica (Estimativa)",
+        "waistCircumferenceCm": 68,
+        "rightThighCm": 52.5,
+        "calvesCm": 35
+      },
+      "performanceTests": {
+        "cooper12MinMeters": 2650,
+        "vo2MaxEstimated": 47.8,
+        "fiveKmPaceMinutes": "4:52 min/km (24min 20s)"
+      },
+      "mobilityNotes": "Dorsiflexão de tornozelo limitada à direita (32° em lunge test).",
+      "coachInterpretation": "Capacidade aeróbica sólida, porém com limiar de lactato precoce a 4:50 min/km. Necessário focar em treinos intervalados de VO2máx e fortalecimento de glúteo médio."
+    },
+    {
+      "id": "asmt-mariana-2",
+      "athleteId": "ath-mariana-costa",
+      "athleteName": "Mariana Costa",
+      "date": "2026-09-28",
+      "type": "corrida_cardio",
+      "measurements": {
+        "weightKg": 57,
+        "heightCm": 167,
+        "bmi": 20.4,
+        "bodyFatPercentageEstimated": 17.5,
+        "bodyFatProtocol": "Bioimpedância tetrapolar médica (Estimativa)",
+        "waistCircumferenceCm": 66,
+        "rightThighCm": 53.5,
+        "calvesCm": 35.5
+      },
+      "performanceTests": {
+        "cooper12MinMeters": 2920,
+        "vo2MaxEstimated": 53.4,
+        "fiveKmPaceMinutes": "4:21 min/km (21min 45s)"
+      },
+      "mobilityNotes": "Assimetria de dorsiflexão corrigida com sucesso (40° em ambos os membros).",
+      "coachInterpretation": "Evolução notável na economia de corrida: Cooper aumentou 270 metros (+10.2%) e o pace nos 5km despencou 31 segundos por km. Pronta para buscar sub-45 min nos 10km."
+    },
+    {
+      "id": "asmt-gabriel-1",
+      "athleteId": "ath-gabriel-santos",
+      "athleteName": "Gabriel Santos",
+      "date": "2026-04-05",
+      "type": "potencia_salto",
+      "measurements": {
+        "weightKg": 73,
+        "heightCm": 176,
+        "bmi": 23.6,
+        "bodyFatPercentageEstimated": 11.2,
+        "bodyFatProtocol": "Pollock 7 dobras (Estimado)",
+        "rightThighCm": 57
+      },
+      "performanceTests": {
+        "verticalJumpCm": 48,
+        "sprint30mMilisecs": 4180,
+        "proAgilitySeconds": 4.62,
+        "yoyoLevel": "17.2"
+      },
+      "mobilityNotes": "Mobilidade normal.",
+      "coachInterpretation": "Bom perfil aeróbico para meio-campo, mas precisa desenvolver maior taxa de desenvolvimento de força (RFD) para os sprints de transição rápida."
+    },
+    {
+      "id": "asmt-gabriel-2",
+      "athleteId": "ath-gabriel-santos",
+      "athleteName": "Gabriel Santos",
+      "date": "2026-10-02",
+      "type": "potencia_salto",
+      "measurements": {
+        "weightKg": 74.2,
+        "heightCm": 176,
+        "bmi": 23.9,
+        "bodyFatPercentageEstimated": 10.4,
+        "bodyFatProtocol": "Pollock 7 dobras (Estimado)",
+        "rightThighCm": 58.5
+      },
+      "performanceTests": {
+        "verticalJumpCm": 55,
+        "sprint30mMilisecs": 3940,
+        "proAgilitySeconds": 4.38,
+        "yoyoLevel": "19.4"
+      },
+      "mobilityNotes": "Excelente propriocepção de tornozelo pós-entorse recuperada.",
+      "coachInterpretation": "Aceleração de 30m baixou de 4.18s para 3.94s (-0.24s). Salto vertical aumentou 7cm através da inclusão dos saltos CMJ e empurrões de trenó pesado."
+    }
+  ],
+  "workoutLogs": [
+    {
+      "id": "log-1",
+      "athleteId": "ath-lucas-silva",
+      "programId": "prog-hipertrofia-upper-lower",
+      "sessionId": "sess-upper-a",
+      "sessionTitle": "Treino A - Membros Superiores (Foco Peitoral & Empurrar)",
+      "date": "2026-10-12",
+      "completed": true,
+      "perceivedExertionRPE": 8.5,
+      "feedbackNotes": "Treino excelente. Supino reto subiu com facilidade nas 4 séries com 95kg. O crucifixo no final deu um pump excelente no peitoral.",
+      "totalDurationMinutes": 68,
+      "tonnageKg": 8420
+    },
+    {
+      "id": "log-2",
+      "athleteId": "ath-lucas-silva",
+      "programId": "prog-hipertrofia-upper-lower",
+      "sessionId": "sess-lower-a",
+      "sessionTitle": "Treino B - Membros Inferiores (Quadríceps & Glúteos)",
+      "date": "2026-10-10",
+      "completed": true,
+      "perceivedExertionRPE": 9,
+      "feedbackNotes": "Agachamento com 120kg bem estável. Sem dor no joelho após o aquecimento de 90/90.",
+      "totalDurationMinutes": 72,
+      "tonnageKg": 10250
+    },
+    {
+      "id": "log-3",
+      "athleteId": "ath-mariana-costa",
+      "programId": "prog-corrida-performance",
+      "sessionId": "sess-run-tiros",
+      "sessionTitle": "Sessão 1 - Tiros de Pista / Intervalado de VO2máx",
+      "date": "2026-10-14",
+      "completed": true,
+      "perceivedExertionRPE": 9.2,
+      "feedbackNotes": "Consegui manter os 8 tiros cravados em 3:54 a 3:56 min/km. FC máxima atingiu 182 bpm no último tiro.",
+      "totalDurationMinutes": 52,
+      "distanceCoveredKm": 7.2
+    },
+    {
+      "id": "log-4",
+      "athleteId": "ath-mariana-costa",
+      "programId": "prog-corrida-performance",
+      "sessionId": "sess-run-tempo",
+      "sessionTitle": "Sessão 2 - Corrida Contínua de Ritmo (Tempo Run Limiar)",
+      "date": "2026-10-11",
+      "completed": true,
+      "perceivedExertionRPE": 8,
+      "feedbackNotes": "Ritmo confortável nos 30 min com 4:38 min/km. Sensação de fôlego muito boa.",
+      "totalDurationMinutes": 48,
+      "distanceCoveredKm": 8.5
+    },
+    {
+      "id": "log-5",
+      "athleteId": "ath-rodrigo-mendes",
+      "programId": "prog-hibrido-hyrox",
+      "sessionId": "sess-hib-1",
+      "sessionTitle": "Sessão 1 - Força Bruta & Capacidade Funcional",
+      "date": "2026-10-13",
+      "completed": true,
+      "perceivedExertionRPE": 9,
+      "feedbackNotes": "Farmer's walk com 36kg de cada lado fritou o antebraço, agachamento 140kg sólido.",
+      "totalDurationMinutes": 78,
+      "tonnageKg": 9800
+    },
+    {
+      "id": "log-6",
+      "athleteId": "ath-gabriel-santos",
+      "programId": "prog-futebol-desempenho",
+      "sessionId": "sess-fut-1",
+      "sessionTitle": "Sessão 1 - Potência, Aceleração & Agilidade 5-10-5",
+      "date": "2026-10-13",
+      "completed": true,
+      "perceivedExertionRPE": 8.5,
+      "feedbackNotes": "Pro-agility cravou 4.39s na terceira passagem. Boa resposta articular do tornozelo.",
+      "totalDurationMinutes": 62
+    }
+  ],
+  "sports": [
+    {
+      "id": "corrida_rua",
+      "name": "Corrida de Rua (5k a Maratona)",
+      "description": "Demanda de resistência aeróbica extrema, economia de corrida, estabilidade de tornozelo/quadril e força de membros inferiores.",
+      "keyDemands": [
+        "resistencia_aerobica",
+        "estabilidade",
+        "forca_relativa",
+        "coordenacao"
+      ],
+      "energySystems": [
+        "Oxidativo (Predominante)",
+        "Glicolítico nos tiros de ritmo"
+      ],
+      "primaryMovementPatterns": [
+        "corrida_locomocao",
+        "avancos_unilateral",
+        "dobradica_quadril"
+      ]
+    },
+    {
+      "id": "futebol",
+      "name": "Futebol de Campo",
+      "description": "Esporte intermitente com sprints curtos repetidos, acelerações, mudanças bruscas de direção, saltos para cabeceio e contato físico.",
+      "keyDemands": [
+        "aceleracao",
+        "agilidade",
+        "potencia",
+        "resistencia_aerobica",
+        "desaceleracao"
+      ],
+      "energySystems": [
+        "ATP-CP (Sprints)",
+        "Glicolítico rápido",
+        "Aeróbico (Recuperação entre sprints)"
+      ],
+      "primaryMovementPatterns": [
+        "corrida_locomocao",
+        "avancos_unilateral",
+        "rotacao_antirotacao",
+        "saltos_aterrissagens"
+      ]
+    },
+    {
+      "id": "futsal",
+      "name": "Futsal",
+      "description": "Dimensões reduzidas, ritmo altíssimo de transição, acelerações e desacelerações intensas, pivôs e giros rápidos.",
+      "keyDemands": [
+        "aceleracao",
+        "desaceleracao",
+        "agilidade",
+        "potencia",
+        "capacidade_anaerobica"
+      ],
+      "energySystems": [
+        "ATP-CP e Glicolítico Láctico intensos"
+      ],
+      "primaryMovementPatterns": [
+        "rotacao_antirotacao",
+        "avancos_unilateral",
+        "corrida_locomocao"
+      ]
+    },
+    {
+      "id": "basquete",
+      "name": "Basquetebol",
+      "description": "Exigência altíssima de potência de salto vertical, agilidade lateral defensiva, desacelerações seguras e arremessos sob fadiga.",
+      "keyDemands": [
+        "potencia",
+        "agilidade",
+        "aceleracao",
+        "desaceleracao",
+        "forca_relativa"
+      ],
+      "energySystems": [
+        "Fosfagênico (Sprints e Saltos)",
+        "Aeróbico de base"
+      ],
+      "primaryMovementPatterns": [
+        "saltos_aterrissagens",
+        "empurrar_vertical",
+        "avancos_unilateral",
+        "rotacao_antirotacao"
+      ]
+    },
+    {
+      "id": "volei",
+      "name": "Voleibol",
+      "description": "Potência de impulsão vertical para bloqueio e ataque, estabilidade escapuloumeral para cortadas e aterrissagens seguras.",
+      "keyDemands": [
+        "potencia",
+        "estabilidade",
+        "mobilidade",
+        "agilidade"
+      ],
+      "energySystems": [
+        "Fosfagênico predominantemente anaeróbio"
+      ],
+      "primaryMovementPatterns": [
+        "saltos_aterrissagens",
+        "empurrar_vertical",
+        "rotacao_antirotacao"
+      ]
+    },
+    {
+      "id": "artes_marciais",
+      "name": "Artes Marciais (Jiu-Jitsu / Judô / MMA)",
+      "description": "Força isométrica de pegada, potência explosiva para quedas, resistência muscular sob pressão e mobilidade torácica/quadril.",
+      "keyDemands": [
+        "forca_maxima",
+        "resistencia_muscular",
+        "potencia",
+        "mobilidade",
+        "estabilidade"
+      ],
+      "energySystems": [
+        "Misto: Glicolítico láctico com picos de fosfagênico e base aeróbica"
+      ],
+      "primaryMovementPatterns": [
+        "rotacao_antirotacao",
+        "puxar_horizontal",
+        "transporte_cargas",
+        "dobradica_quadril"
+      ]
+    },
+    {
+      "id": "ciclismo",
+      "name": "Ciclismo de Estrada & Mountain Bike",
+      "description": "Potência em watts sustentada, cadência eficiente, resistência de quadríceps/glúteos e estabilidade lombar/core.",
+      "keyDemands": [
+        "resistencia_aerobica",
+        "potencia",
+        "resistencia_muscular",
+        "estabilidade"
+      ],
+      "energySystems": [
+        "Oxidativo com picos anaeróbicos em subidas"
+      ],
+      "primaryMovementPatterns": [
+        "agachamento",
+        "avancos_unilateral",
+        "rotacao_antirotacao"
+      ]
+    },
+    {
+      "id": "triatlo",
+      "name": "Triatlo (Natação, Ciclismo e Corrida)",
+      "description": "Tríplice demanda metabólica, eficiência neuromuscular sob exaustão e manutenção da técnica em longas distâncias.",
+      "keyDemands": [
+        "resistencia_aerobica",
+        "coordenacao",
+        "estabilidade",
+        "forca_relativa"
+      ],
+      "energySystems": [
+        "Oxidativo contínuo"
+      ],
+      "primaryMovementPatterns": [
+        "corrida_locomocao",
+        "puxar_vertical",
+        "avancos_unilateral"
+      ]
+    },
+    {
+      "id": "tenis_beach",
+      "name": "Esportes de Raquete (Tênis & Beach Tennis)",
+      "description": "Deslocamentos curtos multidirecionais, potência rotacional de tronco para golpes e desacelerações na areia ou quadra rápida.",
+      "keyDemands": [
+        "agilidade",
+        "potencia",
+        "aceleracao",
+        "equilibrio"
+      ],
+      "energySystems": [
+        "Fosfagênico intermitente com suporte oxidativo"
+      ],
+      "primaryMovementPatterns": [
+        "rotacao_antirotacao",
+        "avancos_unilateral",
+        "multiplanar"
+      ]
+    },
+    {
+      "id": "treinamento_hibrido",
+      "name": "HYROX & Treinamento Híbrido Funcional",
+      "description": "Combinação de corrida de 1km intervalada com estações pesadas de força funcional (Sled Push, Wall Balls, Burpees, Remo, Farmers Walk).",
+      "keyDemands": [
+        "resistencia_aerobica",
+        "capacidade_anaerobica",
+        "forca_maxima",
+        "potencia"
+      ],
+      "energySystems": [
+        "Oxidativo e Glicolítico em alta intensidade simultânea"
+      ],
+      "primaryMovementPatterns": [
+        "transporte_cargas",
+        "agachamento",
+        "dobradica_quadril",
+        "corrida_locomocao"
+      ]
+    }
+  ],
+  "workoutDraft": {
+    "targetAthleteId": null,
+    "programId": null,
+    "title": "Novo Programa Personalizado",
+    "description": "Prescrição customizada com base nas metas e capacidades do atleta.",
+    "splitType": "UpperLower",
+    "category": "hipertrofia",
+    "level": "intermediario",
+    "weeklyFrequency": 4,
+    "isTemplate": false,
+    "sessions": [
+      {
+        "id": "sess-draft-1",
+        "title": "Treino A - Sessão Principal",
+        "dayOfWeek": "Segunda-feira",
+        "focusGoal": "hipertrofia",
+        "estimatedDurationMinutes": 60,
+        "notes": "",
+        "exercises": []
+      }
+    ]
+  },
+  "selectedAthleteId": "ath-lucas-silva",
+  "updatedAt": "2026-10-15T17:47:45.496Z"
+}

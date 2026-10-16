@@ -1,0 +1,67 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default-deny all by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Athletes collection (isolated by coachId)
+    match /athletes/{athleteId} {
+      allow read: if isSignedIn() && resource.data.coachId == request.auth.uid;
+      allow create: if isSignedIn() && request.resource.data.coachId == request.auth.uid;
+      allow update: if isSignedIn() && resource.data.coachId == request.auth.uid && request.resource.data.coachId == request.auth.uid;
+      allow delete: if isSignedIn() && resource.data.coachId == request.auth.uid;
+    }
+
+    // Exercises collection (isolated by coachId)
+    match /exercises/{exerciseId} {
+      allow read: if isSignedIn() && resource.data.coachId == request.auth.uid;
+      allow create: if isSignedIn() && request.resource.data.coachId == request.auth.uid;
+      allow update: if isSignedIn() && resource.data.coachId == request.auth.uid && request.resource.data.coachId == request.auth.uid;
+      allow delete: if isSignedIn() && resource.data.coachId == request.auth.uid;
+    }
+
+    // Training Programs collection (isolated by coachId)
+    match /programs/{programId} {
+      allow read: if isSignedIn() && resource.data.coachId == request.auth.uid;
+      allow create: if isSignedIn() && request.resource.data.coachId == request.auth.uid;
+      allow update: if isSignedIn() && resource.data.coachId == request.auth.uid && request.resource.data.coachId == request.auth.uid;
+      allow delete: if isSignedIn() && resource.data.coachId == request.auth.uid;
+    }
+
+    // Physical Assessments collection (isolated by coachId)
+    match /assessments/{assessmentId} {
+      allow read: if isSignedIn() && resource.data.coachId == request.auth.uid;
+      allow create: if isSignedIn() && request.resource.data.coachId == request.auth.uid;
+      allow update: if isSignedIn() && resource.data.coachId == request.auth.uid && request.resource.data.coachId == request.auth.uid;
+      allow delete: if isSignedIn() && resource.data.coachId == request.auth.uid;
+    }
+
+    // Completed Workout Logs collection (isolated by coachId)
+    match /workoutLogs/{logId} {
+      allow read: if isSignedIn() && resource.data.coachId == request.auth.uid;
+      allow create: if isSignedIn() && request.resource.data.coachId == request.auth.uid;
+      allow update: if isSignedIn() && resource.data.coachId == request.auth.uid && request.resource.data.coachId == request.auth.uid;
+      allow delete: if isSignedIn() && resource.data.coachId == request.auth.uid;
+    }
+
+    // Sports collection (isolated by coachId)
+    match /sports/{sportId} {
+      allow read: if isSignedIn() && resource.data.coachId == request.auth.uid;
+      allow create: if isSignedIn() && request.resource.data.coachId == request.auth.uid;
+      allow update: if isSignedIn() && resource.data.coachId == request.auth.uid && request.resource.data.coachId == request.auth.uid;
+      allow delete: if isSignedIn() && resource.data.coachId == request.auth.uid;
+    }
+
+    // Drafts collection (isolated per user document)
+    match /drafts/{userId} {
+      allow read, write: if isSignedIn() && request.auth.uid == userId;
+    }
+  }
+}

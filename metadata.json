@@ -1,0 +1,8 @@
+{
+  "name": "Julius Coach Pro - Gestão de Atletas e Prescrição de Treinamento",
+  "description": "Plataforma profissional para treinadores gerenciarem clientes e atletas, prescreverem treinos personalizados, organizarem banco inteligente de exercícios e monitorarem evolução de desempenho.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

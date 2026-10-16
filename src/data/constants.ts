@@ -1,0 +1,218 @@
+import {
+  TrainingGoal,
+  MuscleGroup,
+  MovementPattern,
+  PhysicalCapacity,
+  EquipmentType,
+  SportModality,
+} from '../types';
+
+export const TRAINING_GOALS_MAP: Record<TrainingGoal, { label: string; description: string; iconName: string }> = {
+  hipertrofia: {
+    label: 'Hipertrofia Muscular',
+    description: 'Aumento de volume muscular, otimização de sobrecarga tensional e controle de volume semanal.',
+    iconName: 'Dumbbell',
+  },
+  emagrecimento: {
+    label: 'Emagrecimento & Composição Corporal',
+    description: 'Redução de gordura preservando massa magra através de treino resistido e condicionamento metabólico.',
+    iconName: 'Flame',
+  },
+  forca_maxima: {
+    label: 'Ganho de Força Máxima',
+    description: 'Adaptações neurais, recrutamento de unidades motoras e progressão de 1RM com cargas elevadas.',
+    iconName: 'ShieldAlert',
+  },
+  condicionamento_geral: {
+    label: 'Condicionamento Físico Geral',
+    description: 'Capacidade funcional abrangente, saúde cardiovascular e resistência para tarefas do cotidiano.',
+    iconName: 'Activity',
+  },
+  corrida_resistencia: {
+    label: 'Corrida & Resistência Aeróbica',
+    description: 'Economia de corrida, aumento de VO2máx, limiar de lactato e periodização de ritmo/pace.',
+    iconName: 'Zap',
+  },
+  desempenho_esportivo: {
+    label: 'Desempenho Esportivo',
+    description: 'Preparação física voltada às demandas neuromusculares e metabólicas de modalidades competitivas.',
+    iconName: 'Trophy',
+  },
+  atleta_hibrido: {
+    label: 'Atletas Híbridos',
+    description: 'Combinação concorrente de alta força/hipertrofia com capacidade cardiorrespiratória e endurance de elite.',
+    iconName: 'Layers',
+  },
+  potencia_explosao: {
+    label: 'Potência & Explosão Muscular',
+    description: 'Taxa de desenvolvimento de força (RFD), saltos, arremessos balísticos e transferências dinâmicas.',
+    iconName: 'FastForward',
+  },
+  mobilidade_estabilidade: {
+    label: 'Mobilidade, Estabilidade & Controle Motor',
+    description: 'Amplitude articular saudável, controle proprioceptivo e equilíbrio postural dinâmico.',
+    iconName: 'Compass',
+  },
+  resistencia_localizada: {
+    label: 'Resistência Muscular Localizada',
+    description: 'Capacidade de sustentar esforços submáximos repetidos contra resistência e fadiga láctica.',
+    iconName: 'RotateCw',
+  },
+  retorno_progressivo: {
+    label: 'Retorno Progressivo ao Treino',
+    description: 'Recondicionamento gradual pós-lesão ou pausa prolongada com respeito estrito a contraindicações.',
+    iconName: 'HeartHandshake',
+  },
+  personalizado: {
+    label: 'Objetivos Personalizados',
+    description: 'Metas específicas desenhadas de forma customizada entre treinador e atleta.',
+    iconName: 'Target',
+  },
+};
+
+export const MUSCLE_GROUPS_MAP: Record<MuscleGroup, string> = {
+  peitoral: 'Peitoral',
+  costas: 'Costas & Dorsal',
+  ombros: 'Ombros & Deltoides',
+  biceps: 'Bíceps & Braquial',
+  triceps: 'Tríceps Braquial',
+  antebraco_pegada: 'Antebraços & Força de Pegada',
+  quadriceps: 'Quadríceps',
+  posteriores_coxa: 'Posteriores de Coxa (Isquiotibiais)',
+  gluteos: 'Glúteos (Máximo, Médio e Mínimo)',
+  panturrilhas: 'Panturrilhas (Gastrocnêmio & Sóleo)',
+  abdomen_core: 'Abdômen & Complexo do Core',
+  corpo_inteiro: 'Corpo Inteiro (Multiarticular)',
+};
+
+export const MOVEMENT_PATTERNS_MAP: Record<MovementPattern, string> = {
+  agachamento: 'Agachamento (Dominância de Joelho)',
+  dobradica_quadril: 'Dobradiça de Quadril (Hip Hinge)',
+  empurrar_horizontal: 'Empurrar Horizontalmente',
+  empurrar_vertical: 'Empurrar Verticalmente',
+  puxar_horizontal: 'Puxar Horizontalmente',
+  puxar_vertical: 'Puxar Verticalmente',
+  avancos_unilateral: 'Avanços & Movimentos Unilaterais',
+  rotacao_antirotacao: 'Rotação & Antirrotação do Tronco',
+  saltos_aterrissagens: 'Saltos, Pliometria & Aterrissagens',
+  corrida_locomocao: 'Corrida, Sprints & Locomoção',
+  transporte_cargas: 'Transporte de Cargas (Loaded Carries)',
+  multiplanar: 'Movimentos Multiplanares Integrados',
+};
+
+export const PHYSICAL_CAPACITIES_MAP: Record<PhysicalCapacity, string> = {
+  forca_maxima: 'Força Máxima',
+  forca_relativa: 'Força Relativa',
+  potencia: 'Potência Muscular',
+  resistencia_muscular: 'Resistência Muscular Localizada',
+  resistencia_aerobica: 'Resistência Aeróbica (Cardiovascular)',
+  capacidade_anaerobica: 'Capacidade Anaeróbica (Láctica/Aláctica)',
+  velocidade: 'Velocidade Máxima',
+  aceleracao: 'Aceleração Inicial',
+  desaceleracao: 'Desaceleração & Frenagem',
+  agilidade: 'Agilidade & Mudança de Direção (COD)',
+  mobilidade: 'Mobilidade Articular',
+  estabilidade: 'Estabilidade & Controle Motor',
+  coordenacao: 'Coordenação Neuromuscular',
+  equilibrio: 'Equilíbrio Estático & Dinâmico',
+};
+
+export const EQUIPMENT_MAP: Record<EquipmentType, string> = {
+  peso_corporal: 'Peso Corporal (Calistenia)',
+  halteres: 'Halteres',
+  barras_anilhas: 'Barras & Anilhas Olímpicas',
+  maquinas: 'Máquinas Articuladas / Guiadas',
+  cabos_polias: 'Cabos & Polias Reguláveis',
+  elasticos: 'Elásticos & Superbands',
+  kettlebells: 'Kettlebells',
+  medicine_ball: 'Medicine Balls / Slam Balls',
+  caixas_pliometricas: 'Caixas Pliométricas (Plyo Box)',
+  treno: 'Trenós de Arrasto / Empurrão',
+  bike_ergometrica: 'Bicicleta Ergométrica / Air Bike',
+  esteira: 'Esteira Mecânica / Motorizada',
+  remo_ergometrico: 'Remo Ergométrico (Concept2)',
+  outros: 'Outros Equipamentos',
+};
+
+export const DEFAULT_SPORTS: SportModality[] = [
+  {
+    id: 'corrida_rua',
+    name: 'Corrida de Rua (5k a Maratona)',
+    description: 'Demanda de resistência aeróbica extrema, economia de corrida, estabilidade de tornozelo/quadril e força de membros inferiores.',
+    keyDemands: ['resistencia_aerobica', 'estabilidade', 'forca_relativa', 'coordenacao'],
+    energySystems: ['Oxidativo (Predominante)', 'Glicolítico nos tiros de ritmo'],
+    primaryMovementPatterns: ['corrida_locomocao', 'avancos_unilateral', 'dobradica_quadril'],
+  },
+  {
+    id: 'futebol',
+    name: 'Futebol de Campo',
+    description: 'Esporte intermitente com sprints curtos repetidos, acelerações, mudanças bruscas de direção, saltos para cabeceio e contato físico.',
+    keyDemands: ['aceleracao', 'agilidade', 'potencia', 'resistencia_aerobica', 'desaceleracao'],
+    energySystems: ['ATP-CP (Sprints)', 'Glicolítico rápido', 'Aeróbico (Recuperação entre sprints)'],
+    primaryMovementPatterns: ['corrida_locomocao', 'avancos_unilateral', 'rotacao_antirotacao', 'saltos_aterrissagens'],
+  },
+  {
+    id: 'futsal',
+    name: 'Futsal',
+    description: 'Dimensões reduzidas, ritmo altíssimo de transição, acelerações e desacelerações intensas, pivôs e giros rápidos.',
+    keyDemands: ['aceleracao', 'desaceleracao', 'agilidade', 'potencia', 'capacidade_anaerobica'],
+    energySystems: ['ATP-CP e Glicolítico Láctico intensos'],
+    primaryMovementPatterns: ['rotacao_antirotacao', 'avancos_unilateral', 'corrida_locomocao'],
+  },
+  {
+    id: 'basquete',
+    name: 'Basquetebol',
+    description: 'Exigência altíssima de potência de salto vertical, agilidade lateral defensiva, desacelerações seguras e arremessos sob fadiga.',
+    keyDemands: ['potencia', 'agilidade', 'aceleracao', 'desaceleracao', 'forca_relativa'],
+    energySystems: ['Fosfagênico (Sprints e Saltos)', 'Aeróbico de base'],
+    primaryMovementPatterns: ['saltos_aterrissagens', 'empurrar_vertical', 'avancos_unilateral', 'rotacao_antirotacao'],
+  },
+  {
+    id: 'volei',
+    name: 'Voleibol',
+    description: 'Potência de impulsão vertical para bloqueio e ataque, estabilidade escapuloumeral para cortadas e aterrissagens seguras.',
+    keyDemands: ['potencia', 'estabilidade', 'mobilidade', 'agilidade'],
+    energySystems: ['Fosfagênico predominantemente anaeróbio'],
+    primaryMovementPatterns: ['saltos_aterrissagens', 'empurrar_vertical', 'rotacao_antirotacao'],
+  },
+  {
+    id: 'artes_marciais',
+    name: 'Artes Marciais (Jiu-Jitsu / Judô / MMA)',
+    description: 'Força isométrica de pegada, potência explosiva para quedas, resistência muscular sob pressão e mobilidade torácica/quadril.',
+    keyDemands: ['forca_maxima', 'resistencia_muscular', 'potencia', 'mobilidade', 'estabilidade'],
+    energySystems: ['Misto: Glicolítico láctico com picos de fosfagênico e base aeróbica'],
+    primaryMovementPatterns: ['rotacao_antirotacao', 'puxar_horizontal', 'transporte_cargas', 'dobradica_quadril'],
+  },
+  {
+    id: 'ciclismo',
+    name: 'Ciclismo de Estrada & Mountain Bike',
+    description: 'Potência em watts sustentada, cadência eficiente, resistência de quadríceps/glúteos e estabilidade lombar/core.',
+    keyDemands: ['resistencia_aerobica', 'potencia', 'resistencia_muscular', 'estabilidade'],
+    energySystems: ['Oxidativo com picos anaeróbicos em subidas'],
+    primaryMovementPatterns: ['agachamento', 'avancos_unilateral', 'rotacao_antirotacao'],
+  },
+  {
+    id: 'triatlo',
+    name: 'Triatlo (Natação, Ciclismo e Corrida)',
+    description: 'Tríplice demanda metabólica, eficiência neuromuscular sob exaustão e manutenção da técnica em longas distâncias.',
+    keyDemands: ['resistencia_aerobica', 'coordenacao', 'estabilidade', 'forca_relativa'],
+    energySystems: ['Oxidativo contínuo'],
+    primaryMovementPatterns: ['corrida_locomocao', 'puxar_vertical', 'avancos_unilateral'],
+  },
+  {
+    id: 'tenis_beach',
+    name: 'Esportes de Raquete (Tênis & Beach Tennis)',
+    description: 'Deslocamentos curtos multidirecionais, potência rotacional de tronco para golpes e desacelerações na areia ou quadra rápida.',
+    keyDemands: ['agilidade', 'potencia', 'aceleracao', 'equilibrio'],
+    energySystems: ['Fosfagênico intermitente com suporte oxidativo'],
+    primaryMovementPatterns: ['rotacao_antirotacao', 'avancos_unilateral', 'multiplanar'],
+  },
+  {
+    id: 'treinamento_hibrido',
+    name: 'HYROX & Treinamento Híbrido Funcional',
+    description: 'Combinação de corrida de 1km intervalada com estações pesadas de força funcional (Sled Push, Wall Balls, Burpees, Remo, Farmers Walk).',
+    keyDemands: ['resistencia_aerobica', 'capacidade_anaerobica', 'forca_maxima', 'potencia'],
+    energySystems: ['Oxidativo e Glicolítico em alta intensidade simultânea'],
+    primaryMovementPatterns: ['transporte_cargas', 'agachamento', 'dobradica_quadril', 'corrida_locomocao'],
+  },
+];
