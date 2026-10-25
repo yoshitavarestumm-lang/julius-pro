@@ -26,8 +26,8 @@ export const PrintWorkoutModal: React.FC<PrintWorkoutModalProps> = ({ program, o
       : rawSessions.filter((s, idx) => (s.id || `sess-${idx}`) === selectedSessionId);
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-4xl max-h-[92vh] overflow-y-auto p-6 space-y-6 shadow-2xl">
+    <div className="print-modal-backdrop fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+      <div className="print-modal-dialog bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-4xl max-h-[92vh] overflow-y-auto p-6 space-y-6 shadow-2xl">
         {/* Modal Controls - Hidden when printing */}
         <div className="no-print space-y-4 border-b border-slate-800 pb-4">
           <div className="flex items-center justify-between">
@@ -98,9 +98,9 @@ export const PrintWorkoutModal: React.FC<PrintWorkoutModalProps> = ({ program, o
         </div>
 
         {/* The Printable Sheet (Clean white background styling in print) */}
-        <div className="bg-white text-slate-900 p-8 rounded-xl space-y-6 border border-slate-200 font-sans shadow-sm">
+        <div className="print-sheet bg-white text-slate-900 p-8 rounded-xl space-y-6 border border-slate-200 font-sans shadow-sm">
           {/* Sheet Header */}
-          <div className="flex items-start justify-between border-b-2 border-slate-900 pb-4">
+          <div className="print-sheet-header flex items-start justify-between border-b-2 border-slate-900 pb-4">
             <div>
               <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
                 Julius Coach Pro · Prescrição de Treinamento
@@ -145,8 +145,7 @@ export const PrintWorkoutModal: React.FC<PrintWorkoutModalProps> = ({ program, o
               return (
                 <div
                   key={sessionKey}
-                  className="space-y-3 pb-4 border-b border-slate-200 last:border-b-0"
-                  style={{ pageBreakInside: 'avoid', breakInside: 'avoid' }}
+                  className="session-card-print space-y-3 pb-4 border-b border-slate-200 last:border-b-0"
                 >
                   <div className="flex items-center justify-between border-b-2 border-slate-800 pb-2 bg-slate-50 p-2.5 rounded-lg">
                     <div>
@@ -170,7 +169,7 @@ export const PrintWorkoutModal: React.FC<PrintWorkoutModalProps> = ({ program, o
 
                   {/* Exercises Table for this specific session */}
                   {sessionExercises.length > 0 ? (
-                    <table className="w-full text-left text-xs border-collapse">
+                    <table className="print-table w-full text-left text-xs border-collapse">
                       <thead>
                         <tr className="border-b-2 border-slate-800 text-[11px] uppercase tracking-wider text-slate-700 bg-slate-100">
                           <th className="py-2 px-2">#</th>
@@ -187,7 +186,7 @@ export const PrintWorkoutModal: React.FC<PrintWorkoutModalProps> = ({ program, o
                         {sessionExercises.map((ex, eIdx) => {
                           const rowKey = `${sessionKey}-${ex.id || eIdx}`;
                           return (
-                            <tr key={rowKey} className="hover:bg-slate-50">
+                            <tr key={rowKey} className="exercise-row-print hover:bg-slate-50">
                               <td className="py-2 px-2 font-mono text-slate-500 font-bold">{eIdx + 1}</td>
                               <td className="py-2 px-2 font-semibold text-slate-900">
                                 {ex.groupTag && (
@@ -234,7 +233,7 @@ export const PrintWorkoutModal: React.FC<PrintWorkoutModalProps> = ({ program, o
           </div>
 
           {/* Footer of the sheet */}
-          <div className="pt-4 border-t border-slate-300 flex items-center justify-between text-[11px] text-slate-500">
+          <div className="print-sheet-footer pt-4 border-t border-slate-300 flex items-center justify-between text-[11px] text-slate-500">
             <div>Foco na técnica impecável, amplitude segura e sobrecarga progressiva gradual.</div>
             <div className="font-mono">Julius Coach Pro © 2026</div>
           </div>

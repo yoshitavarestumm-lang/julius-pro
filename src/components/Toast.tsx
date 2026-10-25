@@ -14,7 +14,7 @@ export const Toast: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex items-center gap-3 px-4 py-3 bg-slate-900 border border-slate-700 text-slate-100 rounded-xl shadow-2xl text-xs max-w-md animate-in fade-in slide-in-from-bottom-2 duration-200">
+    <div className="no-print fixed bottom-5 right-5 z-50 flex items-center gap-3 px-4 py-3 bg-slate-900 border border-slate-700 text-slate-100 rounded-xl shadow-2xl text-xs max-w-md animate-in fade-in slide-in-from-bottom-2 duration-200">
       {icons[toast.type]}
       <p className="font-medium leading-relaxed">{toast.message}</p>
     </div>

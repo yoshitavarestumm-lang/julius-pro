@@ -191,7 +191,7 @@ function MainAppContent() {
       />
 
       {/* Main View Content */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 pt-6">
+      <main className={`flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 pt-6 ${isPrintModalOpen ? 'no-print' : ''}`}>
         {activeTab === 'painel' && (
           <DashboardView
             setActiveTab={setActiveTab}

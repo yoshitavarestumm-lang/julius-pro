@@ -39,7 +39,7 @@ export const StorageSyncIndicator: React.FC = () => {
   return (
     <aside
       aria-label="Status de sincronização no Cloud Firestore"
-      className="fixed bottom-4 right-4 z-40 max-w-sm bg-slate-900/95 backdrop-blur-md border border-emerald-500/30 rounded-xl p-3 shadow-2xl shadow-black/60 flex items-center gap-3 transition-all"
+      className="no-print fixed bottom-4 right-4 z-40 max-w-sm bg-slate-900/95 backdrop-blur-md border border-emerald-500/30 rounded-xl p-3 shadow-2xl shadow-black/60 flex items-center gap-3 transition-all"
     >
       {/* Pulsing Firebase Cloud Indicator */}
       <div className="relative flex items-center justify-center shrink-0">
