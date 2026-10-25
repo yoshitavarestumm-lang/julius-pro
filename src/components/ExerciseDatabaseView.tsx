@@ -14,8 +14,12 @@ import {
   MOVEMENT_PATTERNS_MAP,
   PHYSICAL_CAPACITIES_MAP,
   EQUIPMENT_MAP,
+  EXERCISE_CATEGORIES_MAP,
   DEFAULT_SPORTS,
 } from '../data/constants';
+import { DEFAULT_EXERCISE_LIBRARY } from '../data/defaultExerciseLibrary';
+import { auth, db } from '../firebase';
+import { collection, doc, writeBatch, getDocs, query, where } from 'firebase/firestore';
 import {
   Search,
   Filter,
@@ -34,6 +38,8 @@ import {
   BookOpen,
   ArrowUpRight,
   X,
+  Download,
+  Loader2,
 } from 'lucide-react';
 
 interface ExerciseDatabaseViewProps {
@@ -46,11 +52,93 @@ export const ExerciseDatabaseView: React.FC<ExerciseDatabaseViewProps> = ({
   onOpenNewExerciseModal,
   onEditExercise,
 }) => {
-  const { exercises, addExerciseToDraft, deleteExercise } = useApp();
+  const { exercises, addExerciseToDraft, deleteExercise, currentUser, showToast } = useApp();
+  const [isImporting, setIsImporting] = useState(false);
+
+  // Compute how many exercises from DEFAULT_EXERCISE_LIBRARY are not yet in the user's database
+  const unimportedCount = useMemo(() => {
+    const existingNames = new Set(exercises.map((e) => e.name?.trim().toLowerCase()));
+    return DEFAULT_EXERCISE_LIBRARY.filter((e) => !existingNames.has(e.name.trim().toLowerCase())).length;
+  }, [exercises]);
+
+  // Import Default Library Handler with Strict Deduplication (Checks Firestore and Local State)
+  const handleImportDefaultLibrary = async () => {
+    const coachId = auth.currentUser?.uid || currentUser?.uid;
+    if (!coachId) {
+      showToast('Você precisa estar conectado para importar exercícios para o seu banco.', 'error');
+      return;
+    }
+
+    try {
+      setIsImporting(true);
+
+      // 1. Fetch current exercises directly from Firestore to guarantee fresh data
+      const exercisesCollection = collection(db, 'exercises');
+      const q = query(exercisesCollection, where('coachId', '==', coachId));
+      const firestoreSnapshot = await getDocs(q);
+
+      // 2. Build normalized Set of all existing exercise names (lowercase & trimmed)
+      const existingNames = new Set<string>();
+      firestoreSnapshot.docs.forEach((docSnap) => {
+        const d = docSnap.data();
+        if (d.name) {
+          existingNames.add(d.name.trim().toLowerCase());
+        }
+      });
+      // Merge with in-memory state as additional safety guarantee
+      exercises.forEach((ex) => {
+        if (ex.name) {
+          existingNames.add(ex.name.trim().toLowerCase());
+        }
+      });
+
+      // 3. Filter only NEW exercises that are not yet in Firestore
+      const newExercisesToImport = DEFAULT_EXERCISE_LIBRARY.filter((exData) => {
+        const normalized = exData.name.trim().toLowerCase();
+        return !existingNames.has(normalized);
+      });
+
+      // If no new exercises exist, inform coach without writing any duplicates
+      if (newExercisesToImport.length === 0) {
+        showToast(
+          'Todos os exercícios da biblioteca padrão já estão cadastrados na sua conta! Nenhuma duplicata foi criada.',
+          'info'
+        );
+        return;
+      }
+
+      // 4. Batch write only the new exercises in chunks of 400 (Firestore allows up to 500)
+      const chunkSize = 400;
+      for (let i = 0; i < newExercisesToImport.length; i += chunkSize) {
+        const chunk = newExercisesToImport.slice(i, i + chunkSize);
+        const batch = writeBatch(db);
+        chunk.forEach((exData) => {
+          const docRef = doc(exercisesCollection);
+          batch.set(docRef, {
+            ...exData,
+            coachId,
+            isCustom: false,
+            createdAt: new Date().toISOString(),
+          });
+        });
+        await batch.commit();
+      }
+
+      showToast(
+        `${newExercisesToImport.length} novos exercícios adicionados com sucesso ao seu banco de dados na nuvem! (Sem duplicidades)`,
+        'success'
+      );
+    } catch (err: any) {
+      console.error('Erro ao importar biblioteca padrão:', err);
+      showToast('Erro ao gravar no Firebase: ' + (err?.message || 'Tente novamente'), 'error');
+    } finally {
+      setIsImporting(false);
+    }
+  };
 
   // Navigation axis filter tab with Lazy State Initialization
   const [activeAxis, setActiveAxis] = useState<
-    'all' | 'goal' | 'muscle' | 'pattern' | 'capacity' | 'equipment' | 'sport'
+    'all' | 'category' | 'goal' | 'muscle' | 'pattern' | 'capacity' | 'equipment' | 'sport'
   >(() => {
     try {
       return (localStorage.getItem('exercicios_activeAxis') as any) || 'all';
@@ -65,6 +153,13 @@ export const ExerciseDatabaseView: React.FC<ExerciseDatabaseViewProps> = ({
       return localStorage.getItem('exercicios_searchQuery') || '';
     } catch (e) {
       return '';
+    }
+  });
+  const [selectedCategory, setSelectedCategory] = useState<string>(() => {
+    try {
+      return localStorage.getItem('exercicios_selectedCategory') || 'all';
+    } catch (e) {
+      return 'all';
     }
   });
   const [selectedGoal, setSelectedGoal] = useState<string>(() => {
@@ -121,6 +216,7 @@ export const ExerciseDatabaseView: React.FC<ExerciseDatabaseViewProps> = ({
     try {
       localStorage.setItem('exercicios_activeAxis', activeAxis);
       localStorage.setItem('exercicios_searchQuery', searchQuery);
+      localStorage.setItem('exercicios_selectedCategory', selectedCategory);
       localStorage.setItem('exercicios_selectedGoal', selectedGoal);
       localStorage.setItem('exercicios_selectedMuscle', selectedMuscle);
       localStorage.setItem('exercicios_selectedPattern', selectedPattern);
@@ -132,6 +228,7 @@ export const ExerciseDatabaseView: React.FC<ExerciseDatabaseViewProps> = ({
   }, [
     activeAxis,
     searchQuery,
+    selectedCategory,
     selectedGoal,
     selectedMuscle,
     selectedPattern,
@@ -147,6 +244,7 @@ export const ExerciseDatabaseView: React.FC<ExerciseDatabaseViewProps> = ({
   // Active Filters Reset
   const clearAllFilters = () => {
     setSearchQuery('');
+    setSelectedCategory('all');
     setSelectedGoal('all');
     setSelectedMuscle('all');
     setSelectedPattern('all');
@@ -158,6 +256,7 @@ export const ExerciseDatabaseView: React.FC<ExerciseDatabaseViewProps> = ({
 
   const hasActiveFilters =
     searchQuery !== '' ||
+    selectedCategory !== 'all' ||
     selectedGoal !== 'all' ||
     selectedMuscle !== 'all' ||
     selectedPattern !== 'all' ||
@@ -177,6 +276,11 @@ export const ExerciseDatabaseView: React.FC<ExerciseDatabaseViewProps> = ({
         const matchesTags = ex.tags.some((t) => t.toLowerCase().includes(q));
         const matchesCues = ex.coachCues.some((c) => c.toLowerCase().includes(q));
         if (!matchesName && !matchesAlt && !matchesTags && !matchesCues) return false;
+      }
+
+      // Category filter
+      if (selectedCategory !== 'all' && ex.category !== selectedCategory) {
+        return false;
       }
 
       // Goal filter (checks both primary and secondary)
@@ -234,6 +338,7 @@ export const ExerciseDatabaseView: React.FC<ExerciseDatabaseViewProps> = ({
   }, [
     exercises,
     searchQuery,
+    selectedCategory,
     selectedGoal,
     selectedMuscle,
     selectedPattern,
@@ -248,20 +353,66 @@ export const ExerciseDatabaseView: React.FC<ExerciseDatabaseViewProps> = ({
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-white">
-            Banco Inteligente de Exercícios
-          </h1>
+          <div className="flex items-center gap-2">
+            <h1 className="text-2xl font-bold tracking-tight text-white">
+              Banco Inteligente de Exercícios
+            </h1>
+            <span className="text-xs px-2.5 py-0.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700 font-mono">
+              {exercises.length} {exercises.length === 1 ? 'exercício' : 'exercícios'}
+            </span>
+          </div>
           <p className="text-sm text-slate-400 mt-0.5">
             Biblioteca científica com classificação multivariável, comandos do treinador e parâmetros de prescrição.
           </p>
         </div>
-        <button
-          onClick={onOpenNewExerciseModal}
-          className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-colors whitespace-nowrap self-start sm:self-auto shadow-sm shadow-emerald-500/10"
-        >
-          <Plus className="w-4 h-4 stroke-[2.5]" />
-          <span>Cadastrar Novo Exercício</span>
-        </button>
+
+        <div className="flex items-center gap-2.5 self-start sm:self-auto flex-wrap">
+          {/* Botão de Importação da Biblioteca Padrão com Deduplicação Inteligente */}
+          <button
+            onClick={handleImportDefaultLibrary}
+            disabled={isImporting}
+            className={`flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-lg transition-all border whitespace-nowrap ${
+              isImporting
+                ? 'bg-slate-800 text-slate-400 border-slate-700 cursor-not-allowed'
+                : unimportedCount > 0
+                ? 'bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border-emerald-500/30 hover:border-emerald-500/50 shadow-sm'
+                : 'bg-slate-800/80 hover:bg-slate-800 text-slate-300 border-slate-700 hover:border-slate-600'
+            }`}
+            title={
+              unimportedCount > 0
+                ? `Importar ${unimportedCount} novos exercícios para o seu Firestore sem duplicar os existentes`
+                : 'Todos os exercícios da biblioteca padrão já estão sincronizados no seu Firebase'
+            }
+          >
+            {isImporting ? (
+              <>
+                <Loader2 className="w-4 h-4 animate-spin text-emerald-400" />
+                <span>Gravando no Firebase...</span>
+              </>
+            ) : unimportedCount > 0 ? (
+              <>
+                <Download className="w-4 h-4 text-emerald-400" />
+                <span>Importar Biblioteca Padrão</span>
+                <span className="ml-1 px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-mono font-bold">
+                  +{unimportedCount} novos
+                </span>
+              </>
+            ) : (
+              <>
+                <Check className="w-4 h-4 text-emerald-400" />
+                <span>Biblioteca Completa ({exercises.length})</span>
+              </>
+            )}
+          </button>
+
+          <button
+            onClick={onOpenNewExerciseModal}
+            className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-colors whitespace-nowrap shadow-sm shadow-emerald-500/10"
+          >
+            <Plus className="w-4 h-4 stroke-[2.5]" />
+            <span>Cadastrar Novo Exercício</span>
+          </button>
+        </div>
       </div>
 
       {/* Axis Navigation Tabs (Section 4 of user request) */}
@@ -280,14 +431,17 @@ export const ExerciseDatabaseView: React.FC<ExerciseDatabaseViewProps> = ({
           Todos os Exercícios
         </button>
         <button
-          onClick={() => setActiveAxis('goal')}
+          onClick={() => {
+            setActiveAxis('category');
+            clearAllFilters();
+          }}
           className={`px-3 py-1.5 text-xs font-medium rounded-lg whitespace-nowrap transition-colors ${
-            activeAxis === 'goal'
+            activeAxis === 'category'
               ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-semibold'
               : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
           }`}
         >
-          Por Objetivo
+          Por Categoria
         </button>
         <button
           onClick={() => setActiveAxis('muscle')}
@@ -298,6 +452,16 @@ export const ExerciseDatabaseView: React.FC<ExerciseDatabaseViewProps> = ({
           }`}
         >
           Por Grupo Muscular
+        </button>
+        <button
+          onClick={() => setActiveAxis('goal')}
+          className={`px-3 py-1.5 text-xs font-medium rounded-lg whitespace-nowrap transition-colors ${
+            activeAxis === 'goal'
+              ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-semibold'
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
+          }`}
+        >
+          Por Objetivo
         </button>
         <button
           onClick={() => setActiveAxis('pattern')}
@@ -342,6 +506,33 @@ export const ExerciseDatabaseView: React.FC<ExerciseDatabaseViewProps> = ({
       </div>
 
       {/* Quick Category Chips according to selected axis */}
+      {activeAxis === 'category' && (
+        <div className="flex flex-wrap gap-1.5 p-3 bg-slate-900 border border-slate-800 rounded-xl">
+          <button
+            onClick={() => setSelectedCategory('all')}
+            className={`px-2.5 py-1 text-xs rounded-md ${
+              selectedCategory === 'all'
+                ? 'bg-emerald-400 text-slate-950 font-bold'
+                : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+            }`}
+          >
+            Todas Categorias
+          </button>
+          {Object.entries(EXERCISE_CATEGORIES_MAP).map(([key, label]) => (
+            <button
+              key={key}
+              onClick={() => setSelectedCategory(key)}
+              className={`px-2.5 py-1 text-xs rounded-md ${
+                selectedCategory === key
+                  ? 'bg-emerald-400 text-slate-950 font-bold'
+                  : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      )}
       {activeAxis === 'muscle' && (
         <div className="flex flex-wrap gap-1.5 p-3 bg-slate-900 border border-slate-800 rounded-xl">
           <button
@@ -508,7 +699,20 @@ export const ExerciseDatabaseView: React.FC<ExerciseDatabaseViewProps> = ({
         </div>
 
         {/* Multi-Filter Dropdown Selectors */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-xs">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2 text-xs">
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className="p-2 bg-slate-800 text-slate-200 rounded-lg border border-slate-700 focus:outline-none truncate"
+          >
+            <option value="all">Categoria (Todas)</option>
+            {Object.entries(EXERCISE_CATEGORIES_MAP).map(([k, v]) => (
+              <option key={k} value={k}>
+                {v}
+              </option>
+            ))}
+          </select>
+
           <select
             value={selectedGoal}
             onChange={(e) => setSelectedGoal(e.target.value)}
@@ -607,13 +811,20 @@ export const ExerciseDatabaseView: React.FC<ExerciseDatabaseViewProps> = ({
                   className="p-5 bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-xl flex flex-col justify-between transition-all group"
                 >
                   <div>
-                    {/* Header: Title and Difficulty */}
+                    {/* Header: Title, Category Badge and Difficulty */}
                     <div className="flex items-start justify-between gap-2">
-                      <div>
-                        <h3 className="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">
-                          {exercise.name}
-                        </h3>
-                        {exercise.alternativeNames.length > 0 && (
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <h3 className="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">
+                            {exercise.name}
+                          </h3>
+                        </div>
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          <span className="text-[10px] font-medium px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+                            {EXERCISE_CATEGORIES_MAP[exercise.category] || exercise.category}
+                          </span>
+                        </div>
+                        {exercise.alternativeNames && exercise.alternativeNames.length > 0 && (
                           <p className="text-[11px] text-slate-400 mt-0.5 line-clamp-1">
                             {exercise.alternativeNames.join(', ')}
                           </p>
@@ -706,6 +917,35 @@ export const ExerciseDatabaseView: React.FC<ExerciseDatabaseViewProps> = ({
               );
             })}
           </div>
+        ) : exercises.length === 0 ? (
+          <div className="p-12 text-center bg-slate-900 border border-slate-800 rounded-2xl space-y-4">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto text-emerald-400">
+              <Dumbbell className="w-6 h-6" />
+            </div>
+            <div className="space-y-1">
+              <h3 className="text-base font-bold text-white">Sua biblioteca no Firebase está pronta para ser preenchida</h3>
+              <p className="text-xs text-slate-400 max-w-md mx-auto">
+                Clique no botão abaixo para gravar os {DEFAULT_EXERCISE_LIBRARY.length} exercícios completos de musculação, LPO, pliometria, velocidade e mobilidade direto no seu Firestore.
+              </p>
+            </div>
+            <button
+              onClick={handleImportDefaultLibrary}
+              disabled={isImporting}
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold rounded-lg bg-emerald-400 hover:bg-emerald-300 text-slate-950 transition-colors shadow-sm shadow-emerald-500/10 cursor-pointer"
+            >
+              {isImporting ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <span>Gravando exercícios no Firestore...</span>
+                </>
+              ) : (
+                <>
+                  <Download className="w-4 h-4" />
+                  <span>Importar Biblioteca Completa ({DEFAULT_EXERCISE_LIBRARY.length} Exercícios)</span>
+                </>
+              )}
+            </button>
+          </div>
         ) : (
           <div className="p-12 text-center bg-slate-900 border border-slate-800 rounded-2xl space-y-3">
             <Dumbbell className="w-8 h-8 text-slate-600 mx-auto" />
@@ -715,7 +955,7 @@ export const ExerciseDatabaseView: React.FC<ExerciseDatabaseViewProps> = ({
             </p>
             <button
               onClick={clearAllFilters}
-              className="px-3.5 py-1.5 text-xs text-slate-200 bg-slate-800 rounded-lg hover:bg-slate-700"
+              className="px-3.5 py-1.5 text-xs text-slate-200 bg-slate-800 rounded-lg hover:bg-slate-700 cursor-pointer"
             >
               Resetar Filtros
             </button>

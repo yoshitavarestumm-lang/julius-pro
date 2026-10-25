@@ -5,7 +5,16 @@ import {
   PhysicalCapacity,
   EquipmentType,
   SportModality,
+  Exercise,
 } from '../types';
+
+export const EXERCISE_CATEGORIES_MAP: Record<Exercise['category'], string> = {
+  musculacao: 'Musculação Tradicional',
+  pliometria: 'Pliometria & Saltos',
+  cardio_locomocao: 'Cardio & Locomoção',
+  mobilidade: 'Mobilidade & Flexibilidade',
+  funcional_potencia: 'Funcional & Potência',
+};
 
 export const TRAINING_GOALS_MAP: Record<TrainingGoal, { label: string; description: string; iconName: string }> = {
   hipertrofia: {
