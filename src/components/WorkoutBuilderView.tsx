@@ -42,6 +42,8 @@ export const WorkoutBuilderView: React.FC<WorkoutBuilderViewProps> = ({
   const {
     workoutDraft,
     setWorkoutDraft,
+    activeSessionIndex,
+    setActiveSessionIndex,
     clearWorkoutDraft,
     saveProgram,
     athletes,
@@ -50,24 +52,24 @@ export const WorkoutBuilderView: React.FC<WorkoutBuilderViewProps> = ({
     showToast,
   } = useApp();
 
-  const [activeSessionIndex, setActiveSessionIndex] = useState(() => {
-    try {
-      const salvo = localStorage.getItem('treinos_activeSessionIndex');
-      return salvo ? JSON.parse(salvo) : 0;
-    } catch (e) {
-      return 0;
-    }
-  });
+  // Clamp active session index within safe bounds
+  const safeSessionIndex = Math.min(
+    Math.max(0, activeSessionIndex),
+    Math.max(0, (workoutDraft.sessions?.length || 1) - 1)
+  );
 
   React.useEffect(() => {
-    try {
-      localStorage.setItem('treinos_activeSessionIndex', JSON.stringify(activeSessionIndex));
-    } catch (e) {}
-  }, [activeSessionIndex]);
+    if (workoutDraft.sessions && workoutDraft.sessions.length > 0) {
+      if (activeSessionIndex >= workoutDraft.sessions.length) {
+        setActiveSessionIndex(workoutDraft.sessions.length - 1);
+      }
+    }
+  }, [workoutDraft.sessions, activeSessionIndex, setActiveSessionIndex]);
 
   const [copiedWhatsApp, setCopiedWhatsApp] = useState(false);
 
-  const currentSession = workoutDraft.sessions[activeSessionIndex] || workoutDraft.sessions[0];
+  const currentSession =
+    workoutDraft.sessions?.[safeSessionIndex] || workoutDraft.sessions?.[0] || null;
 
   // Helper to update draft header metadata
   const updateDraftMeta = (field: string, value: any) => {
@@ -79,8 +81,9 @@ export const WorkoutBuilderView: React.FC<WorkoutBuilderViewProps> = ({
 
   // Add new session to draft
   const handleAddSession = () => {
-    const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
-    const nextLetter = letters[workoutDraft.sessions.length] || `Sessão ${workoutDraft.sessions.length + 1}`;
+    const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+    const currentSessionsCount = (workoutDraft.sessions || []).length;
+    const nextLetter = letters[currentSessionsCount] || `Sessão ${currentSessionsCount + 1}`;
     const newSession: WorkoutSession = {
       id: `sess-${Date.now()}`,
       title: `Treino ${nextLetter} - Nova Divisão`,
@@ -93,19 +96,19 @@ export const WorkoutBuilderView: React.FC<WorkoutBuilderViewProps> = ({
 
     setWorkoutDraft((prev: any) => ({
       ...prev,
-      sessions: [...prev.sessions, newSession],
+      sessions: [...(prev.sessions || []), newSession],
     }));
-    setActiveSessionIndex(workoutDraft.sessions.length);
+    setActiveSessionIndex(currentSessionsCount);
     showToast(`Sessão "${newSession.title}" adicionada.`);
   };
 
   // Remove session from draft
   const handleRemoveSession = (index: number) => {
-    if (workoutDraft.sessions.length <= 1) {
+    if ((workoutDraft.sessions || []).length <= 1) {
       showToast('O programa precisa de pelo menos uma sessão.', 'error');
       return;
     }
-    const filtered = workoutDraft.sessions.filter((_: any, i: number) => i !== index);
+    const filtered = (workoutDraft.sessions || []).filter((_: any, i: number) => i !== index);
     setWorkoutDraft((prev: any) => ({
       ...prev,
       sessions: filtered,
@@ -116,9 +119,11 @@ export const WorkoutBuilderView: React.FC<WorkoutBuilderViewProps> = ({
   // Update session field
   const updateSession = (field: keyof WorkoutSession, value: any) => {
     setWorkoutDraft((prev: any) => {
-      const copy = [...prev.sessions];
-      copy[activeSessionIndex] = {
-        ...copy[activeSessionIndex],
+      const copy = [...(prev.sessions || [])];
+      const targetIdx = Math.min(Math.max(0, safeSessionIndex), copy.length - 1);
+      if (!copy[targetIdx]) return prev;
+      copy[targetIdx] = {
+        ...copy[targetIdx],
         [field]: value,
       };
       return { ...prev, sessions: copy };
@@ -128,30 +133,36 @@ export const WorkoutBuilderView: React.FC<WorkoutBuilderViewProps> = ({
   // Update specific prescribed exercise
   const updateExercise = (exerciseId: string, updates: Partial<PrescribedExercise>) => {
     setWorkoutDraft((prev: any) => {
-      const copy = [...prev.sessions];
-      const targetSession = copy[activeSessionIndex];
-      targetSession.exercises = targetSession.exercises.map((ex: PrescribedExercise) =>
+      const copy = [...(prev.sessions || [])];
+      const targetIdx = Math.min(Math.max(0, safeSessionIndex), copy.length - 1);
+      if (!copy[targetIdx]) return prev;
+      const targetSession = { ...copy[targetIdx] };
+      targetSession.exercises = (targetSession.exercises || []).map((ex: PrescribedExercise) =>
         ex.id === exerciseId ? { ...ex, ...updates } : ex
       );
-      copy[activeSessionIndex] = targetSession;
+      copy[targetIdx] = targetSession;
       return { ...prev, sessions: copy };
     });
   };
 
   // Move exercise up or down in order
   const moveExercise = (index: number, direction: 'up' | 'down') => {
+    if (!currentSession) return;
+    const currentExercises = currentSession.exercises || [];
     const targetIdx = direction === 'up' ? index - 1 : index + 1;
-    if (targetIdx < 0 || targetIdx >= currentSession.exercises.length) return;
+    if (targetIdx < 0 || targetIdx >= currentExercises.length) return;
 
     setWorkoutDraft((prev: any) => {
-      const copy = [...prev.sessions];
-      const session = copy[activeSessionIndex];
-      const exCopy = [...session.exercises];
+      const copy = [...(prev.sessions || [])];
+      const targetIdxSession = Math.min(Math.max(0, safeSessionIndex), copy.length - 1);
+      if (!copy[targetIdxSession]) return prev;
+      const session = { ...copy[targetIdxSession] };
+      const exCopy = [...(session.exercises || [])];
       const temp = exCopy[index];
       exCopy[index] = exCopy[targetIdx];
       exCopy[targetIdx] = temp;
       session.exercises = exCopy;
-      copy[activeSessionIndex] = session;
+      copy[targetIdxSession] = session;
       return { ...prev, sessions: copy };
     });
   };
@@ -159,15 +170,19 @@ export const WorkoutBuilderView: React.FC<WorkoutBuilderViewProps> = ({
   // Remove exercise from session
   const removeExercise = (exerciseId: string) => {
     setWorkoutDraft((prev: any) => {
-      const copy = [...prev.sessions];
-      const session = copy[activeSessionIndex];
-      session.exercises = session.exercises.filter((ex: PrescribedExercise) => ex.id !== exerciseId);
-      copy[activeSessionIndex] = session;
+      const copy = [...(prev.sessions || [])];
+      const targetIdxSession = Math.min(Math.max(0, safeSessionIndex), copy.length - 1);
+      if (!copy[targetIdxSession]) return prev;
+      const session = { ...copy[targetIdxSession] };
+      session.exercises = (session.exercises || []).filter(
+        (ex: PrescribedExercise) => ex.id !== exerciseId
+      );
+      copy[targetIdxSession] = session;
       return { ...prev, sessions: copy };
     });
   };
 
-  // Save Workout Program to Database
+  // Save Workout Program to Database (Guaranteed 100% session and exercise preservation)
   const handleSaveProgram = async (asTemplate: boolean = false) => {
     if (!workoutDraft.title.trim()) {
       showToast('Insira um título para o programa.', 'error');
@@ -176,10 +191,21 @@ export const WorkoutBuilderView: React.FC<WorkoutBuilderViewProps> = ({
 
     const targetAthlete = athletes.find((a) => a.id === workoutDraft.targetAthleteId);
 
-    const saved = await saveProgram(
+    // If saving as template from an existing athlete program, create a new template doc
+    const existingIdToUse = asTemplate
+      ? (workoutDraft.isTemplate && workoutDraft.programId ? workoutDraft.programId : undefined)
+      : (workoutDraft.programId || undefined);
+
+    const programTitle = asTemplate
+      ? (workoutDraft.title.toLowerCase().includes('modelo')
+          ? workoutDraft.title
+          : `${workoutDraft.title} (Modelo)`)
+      : workoutDraft.title;
+
+    await saveProgram(
       {
-        title: workoutDraft.title,
-        description: workoutDraft.description,
+        title: programTitle,
+        description: workoutDraft.description || '',
         athleteId: asTemplate ? undefined : (workoutDraft.targetAthleteId || undefined),
         athleteName: asTemplate ? undefined : (targetAthlete?.name || undefined),
         isTemplate: asTemplate,
@@ -189,14 +215,8 @@ export const WorkoutBuilderView: React.FC<WorkoutBuilderViewProps> = ({
         weeklyFrequency: workoutDraft.weeklyFrequency,
         sessions: workoutDraft.sessions,
       },
-      workoutDraft.programId || undefined
+      existingIdToUse
     );
-
-    if (asTemplate) {
-      showToast(`Modelo master "${saved.title}" salvo na biblioteca de templates!`);
-    } else {
-      showToast(`Programa salvo e atribuído com sucesso!`);
-    }
   };
 
   // Copy WhatsApp Formatted Message
@@ -403,12 +423,12 @@ export const WorkoutBuilderView: React.FC<WorkoutBuilderViewProps> = ({
       <div className="flex items-center justify-between border-b border-slate-800 pb-2">
         <div className="flex items-center gap-1.5 overflow-x-auto">
           {workoutDraft.sessions.map((sess: WorkoutSession, idx: number) => {
-            const isActive = idx === activeSessionIndex;
+            const isActive = idx === safeSessionIndex;
             return (
               <button
-                key={sess.id}
+                key={sess.id || `sess-${idx}`}
                 onClick={() => setActiveSessionIndex(idx)}
-                className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 ${
+                className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg whitespace-nowrap transition-colors flex items-center gap-2 cursor-pointer ${
                   isActive
                     ? 'bg-slate-800 text-emerald-400 border border-emerald-500/30'
                     : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
@@ -416,7 +436,7 @@ export const WorkoutBuilderView: React.FC<WorkoutBuilderViewProps> = ({
               >
                 <span>{sess.title.split('-')[0].trim()}</span>
                 <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-900 text-slate-400">
-                  {sess.exercises.length}
+                  {(sess.exercises || []).length}
                 </span>
               </button>
             );
@@ -424,7 +444,7 @@ export const WorkoutBuilderView: React.FC<WorkoutBuilderViewProps> = ({
 
           <button
             onClick={handleAddSession}
-            className="flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-emerald-400 hover:bg-emerald-500/10 rounded-lg transition-colors whitespace-nowrap"
+            className="flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-emerald-400 hover:bg-emerald-500/10 rounded-lg transition-colors whitespace-nowrap cursor-pointer"
           >
             <Plus className="w-3.5 h-3.5" />
             <span>+ Adicionar Sessão</span>
@@ -433,8 +453,8 @@ export const WorkoutBuilderView: React.FC<WorkoutBuilderViewProps> = ({
 
         {workoutDraft.sessions.length > 1 && (
           <button
-            onClick={() => handleRemoveSession(activeSessionIndex)}
-            className="text-xs text-rose-400 hover:text-rose-300 flex items-center gap-1"
+            onClick={() => handleRemoveSession(safeSessionIndex)}
+            className="text-xs text-rose-400 hover:text-rose-300 flex items-center gap-1 cursor-pointer"
             title="Excluir sessão atual"
           >
             <Trash2 className="w-3 h-3" />
@@ -506,11 +526,11 @@ export const WorkoutBuilderView: React.FC<WorkoutBuilderViewProps> = ({
         <div className="flex items-center justify-between">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <Dumbbell className="w-4 h-4 text-emerald-400" />
-            Exercícios Prescritos na Sessão ({currentSession?.exercises.length || 0})
+            Exercícios Prescritos na Sessão ({(currentSession?.exercises || []).length})
           </h3>
           <button
-            onClick={() => onOpenExercisePicker(activeSessionIndex)}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-colors shadow-sm"
+            onClick={() => onOpenExercisePicker(safeSessionIndex)}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-colors shadow-sm cursor-pointer"
           >
             <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
             <span>+ Selecionar do Banco</span>

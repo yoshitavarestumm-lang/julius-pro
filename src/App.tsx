@@ -32,6 +32,8 @@ function MainAppContent() {
     loadProgramIntoDraft,
     setWorkoutDraft,
     setSelectedAthleteId,
+    setActiveSessionIndex,
+    programs,
   } = useApp();
 
   const [activeTab, setActiveTab] = useState<NavTab>(() => {
@@ -102,20 +104,50 @@ function MainAppContent() {
     }
   };
 
-  const handlePrescribeForAthlete = (athlete: Athlete) => {
+  const handlePrescribeForAthlete = (athlete: Athlete, sessionIndex: number = 0) => {
     setSelectedAthleteId(athlete.id);
-    setWorkoutDraft((prev: any) => ({
-      ...prev,
-      targetAthleteId: athlete.id,
-      title: `Treino Personalizado - ${athlete.name}`,
-      category: athlete.primaryGoal,
-      level: athlete.level,
-    }));
+    const existingProg = programs.find((p) => p.id === athlete.activeProgramId);
+    if (existingProg) {
+      loadProgramIntoDraft(existingProg, athlete.id, sessionIndex);
+    } else {
+      const newDraft = {
+        targetAthleteId: athlete.id,
+        programId: null,
+        title: `Treino Personalizado - ${athlete.name}`,
+        description: `Prescrição individualizada com base nas metas e capacidades do atleta.`,
+        splitType: 'UpperLower' as any,
+        category: athlete.primaryGoal,
+        level: athlete.level,
+        weeklyFrequency: athlete.preferredDays?.length || 4,
+        isTemplate: false,
+        sessions: [
+          {
+            id: `sess-${Date.now()}`,
+            title: 'Treino A - Sessão Principal',
+            dayOfWeek: athlete.preferredDays?.[0] || 'Segunda-feira',
+            focusGoal: athlete.primaryGoal,
+            estimatedDurationMinutes: athlete.sessionDurationMinutes || 60,
+            notes: '',
+            exercises: [],
+          },
+        ],
+      };
+      setWorkoutDraft(newDraft);
+      setActiveSessionIndex(0);
+    }
     setActiveTab('montar_treino');
   };
 
-  const handleEditProgram = (program: TrainingProgram) => {
-    loadProgramIntoDraft(program, program.athleteId);
+  const handleEditAthleteSession = (program: TrainingProgram, sessionIndex: number) => {
+    if (program.athleteId) {
+      setSelectedAthleteId(program.athleteId);
+    }
+    loadProgramIntoDraft(program, program.athleteId, sessionIndex);
+    setActiveTab('montar_treino');
+  };
+
+  const handleEditProgram = (program: TrainingProgram, sessionIndex: number = 0) => {
+    loadProgramIntoDraft(program, program.athleteId, sessionIndex);
     setActiveTab('montar_treino');
   };
 
@@ -172,6 +204,8 @@ function MainAppContent() {
             onOpenNewAthleteModal={handleOpenNewAthlete}
             onEditAthlete={handleEditAthlete}
             onPrescribeForAthlete={handlePrescribeForAthlete}
+            onEditAthleteSession={handleEditAthleteSession}
+            onOpenPrintModal={handleOpenPrintModal}
           />
         )}
 

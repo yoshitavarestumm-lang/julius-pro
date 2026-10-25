@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext';
-import { Athlete, TrainingGoal, AthleteLevel, EquipmentType } from '../types';
+import { Athlete, TrainingGoal, AthleteLevel, EquipmentType, TrainingProgram } from '../types';
 import {
   TRAINING_GOALS_MAP,
   EQUIPMENT_MAP,
@@ -19,18 +19,23 @@ import {
   CheckCircle2,
   Activity,
   Award,
+  Printer,
 } from 'lucide-react';
 
 interface AthletesViewProps {
   onOpenNewAthleteModal: () => void;
   onEditAthlete: (athlete: Athlete) => void;
-  onPrescribeForAthlete: (athlete: Athlete) => void;
+  onPrescribeForAthlete: (athlete: Athlete, sessionIndex?: number) => void;
+  onEditAthleteSession?: (program: TrainingProgram, sessionIndex: number) => void;
+  onOpenPrintModal?: (program: TrainingProgram) => void;
 }
 
 export const AthletesView: React.FC<AthletesViewProps> = ({
   onOpenNewAthleteModal,
   onEditAthlete,
   onPrescribeForAthlete,
+  onEditAthleteSession,
+  onOpenPrintModal,
 }) => {
   const {
     athletes,
@@ -230,16 +235,38 @@ export const AthletesView: React.FC<AthletesViewProps> = ({
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 self-start sm:self-auto">
-                <button
-                  onClick={() => onPrescribeForAthlete(currentAthlete)}
-                  className="px-3.5 py-1.5 text-xs font-semibold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-colors whitespace-nowrap"
-                >
-                  Prescrever Treino
-                </button>
+              <div className="flex items-center gap-2 self-start sm:self-auto flex-wrap">
+                {athleteProgram ? (
+                  <>
+                    <button
+                      onClick={() => onPrescribeForAthlete(currentAthlete, 0)}
+                      className="px-3.5 py-1.5 text-xs font-semibold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-colors whitespace-nowrap cursor-pointer flex items-center gap-1.5"
+                    >
+                      <FileEdit className="w-3.5 h-3.5" />
+                      <span>Editar Treino Ativo</span>
+                    </button>
+                    {onOpenPrintModal && (
+                      <button
+                        onClick={() => onOpenPrintModal(athleteProgram)}
+                        className="p-1.5 text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg border border-slate-700/60 cursor-pointer flex items-center gap-1 px-2.5 text-xs"
+                        title="Imprimir Ficha Completa / PDF"
+                      >
+                        <Printer className="w-3.5 h-3.5 text-emerald-400" />
+                        <span className="hidden sm:inline">Imprimir Ficha (PDF)</span>
+                      </button>
+                    )}
+                  </>
+                ) : (
+                  <button
+                    onClick={() => onPrescribeForAthlete(currentAthlete, 0)}
+                    className="px-3.5 py-1.5 text-xs font-semibold text-slate-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-colors whitespace-nowrap cursor-pointer"
+                  >
+                    Prescrever Treino
+                  </button>
+                )}
                 <button
                   onClick={() => onEditAthlete(currentAthlete)}
-                  className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg border border-slate-700/60"
+                  className="p-1.5 text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg border border-slate-700/60 cursor-pointer"
                   title="Editar dados"
                 >
                   <FileEdit className="w-4 h-4" />
@@ -250,7 +277,7 @@ export const AthletesView: React.FC<AthletesViewProps> = ({
                       deleteAthlete(currentAthlete.id);
                     }
                   }}
-                  className="p-1.5 text-rose-400 hover:text-rose-300 hover:bg-slate-800 rounded-lg border border-slate-700/60"
+                  className="p-1.5 text-rose-400 hover:text-rose-300 hover:bg-slate-800 rounded-lg border border-slate-700/60 cursor-pointer"
                   title="Excluir atleta"
                 >
                   <Trash2 className="w-4 h-4" />
@@ -360,32 +387,86 @@ export const AthletesView: React.FC<AthletesViewProps> = ({
                   Programa de Treinamento Ativo
                 </span>
                 {athleteProgram && (
-                  <span className="text-xs font-mono text-emerald-400">
-                    Divisão {athleteProgram.splitType}
+                  <span className="text-xs font-mono text-emerald-400 font-bold">
+                    Divisão {athleteProgram.splitType} ({(athleteProgram.sessions || []).length} divisões)
                   </span>
                 )}
               </div>
 
               {athleteProgram ? (
-                <div className="mt-3 space-y-2">
-                  <h4 className="text-sm font-bold text-white">{athleteProgram.title}</h4>
-                  <p className="text-xs text-slate-400">{athleteProgram.description}</p>
-                  <div className="mt-3 flex flex-wrap gap-2 pt-2 border-t border-slate-800">
-                    {athleteProgram.sessions.map((sess, idx) => (
-                      <div
-                        key={sess.id}
-                        className="px-2.5 py-1 bg-slate-900 border border-slate-700/80 rounded text-xs text-slate-300"
+                <div className="mt-3 space-y-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                      <h4 className="text-sm font-bold text-white">{athleteProgram.title}</h4>
+                      <p className="text-xs text-slate-400 mt-0.5">{athleteProgram.description}</p>
+                    </div>
+                    {onOpenPrintModal && (
+                      <button
+                        onClick={() => onOpenPrintModal(athleteProgram)}
+                        className="self-start sm:self-auto px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer"
+                        title="Imprimir ficha de treino deste programa"
                       >
-                        <span className="font-semibold text-emerald-400">{sess.title}: </span>
-                        <span>{sess.exercises.length} exercícios</span>
-                      </div>
-                    ))}
+                        <Printer className="w-3.5 h-3.5 text-emerald-400" />
+                        <span>Imprimir / PDF</span>
+                      </button>
+                    )}
+                  </div>
+
+                  <div className="pt-2 border-t border-slate-800">
+                    <span className="text-xs font-semibold text-slate-400 block mb-2">
+                      Divisões de Treino (Clique na sessão para abrir e editar diretamente):
+                    </span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+                      {(athleteProgram.sessions || []).map((sess, idx) => (
+                        <button
+                          key={sess.id || `sess-${idx}`}
+                          onClick={() => {
+                            if (onEditAthleteSession) {
+                              onEditAthleteSession(athleteProgram, idx);
+                            } else {
+                              onPrescribeForAthlete(currentAthlete, idx);
+                            }
+                          }}
+                          className="p-3 bg-slate-900 hover:bg-slate-800 hover:border-emerald-500/50 border border-slate-700/80 rounded-xl text-left transition-all group cursor-pointer shadow-sm"
+                          title={`Clique para abrir e editar ${sess.title} no montador de treinos`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="font-bold text-emerald-400 text-xs group-hover:underline">
+                              {sess.title.split('-')[0].trim()}
+                            </span>
+                            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-slate-300">
+                              {(sess.exercises || []).length} ex.
+                            </span>
+                          </div>
+                          <p className="text-xs font-medium text-slate-200 mt-1 line-clamp-1">
+                            {sess.title.includes('-')
+                              ? sess.title.split('-').slice(1).join('-').trim()
+                              : sess.title}
+                          </p>
+                          <div className="flex items-center justify-between mt-2 pt-1.5 border-t border-slate-800/80 text-[11px] text-slate-400">
+                            <span>{sess.dayOfWeek || 'Dia a definir'}</span>
+                            <span className="text-emerald-400 font-semibold group-hover:translate-x-0.5 transition-transform flex items-center gap-1">
+                              Editar →
+                            </span>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ) : (
-                <p className="text-xs text-slate-500 mt-2">
-                  Nenhum programa ativo no momento para este atleta.
-                </p>
+                <div className="mt-3 p-4 bg-slate-900/60 rounded-xl border border-dashed border-slate-700/60 text-center space-y-2">
+                  <p className="text-xs text-slate-400">
+                    Nenhum programa ativo no momento para este atleta.
+                  </p>
+                  <button
+                    onClick={() => onPrescribeForAthlete(currentAthlete, 0)}
+                    className="inline-flex items-center gap-1 px-3 py-1.5 bg-emerald-400 hover:bg-emerald-300 text-slate-950 rounded-lg text-xs font-semibold cursor-pointer"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                    <span>Montar Primeiro Treino</span>
+                  </button>
+                </div>
               )}
             </div>
 

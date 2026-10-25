@@ -61,9 +61,11 @@ interface AppContextType {
 
   workoutDraft: WorkoutDraft;
   setWorkoutDraft: React.Dispatch<React.SetStateAction<WorkoutDraft>>;
+  activeSessionIndex: number;
+  setActiveSessionIndex: (index: number) => void;
   addExerciseToDraft: (exercise: Exercise, targetSessionIndex?: number) => void;
   clearWorkoutDraft: () => void;
-  loadProgramIntoDraft: (program: TrainingProgram, forAthleteId?: string) => void;
+  loadProgramIntoDraft: (program: TrainingProgram, forAthleteId?: string, sessionIndex?: number) => void;
 
   addAthlete: (athlete: Omit<Athlete, 'id' | 'createdAt' | 'lastActive'>) => Promise<Athlete>;
   updateAthlete: (id: string, updates: Partial<Athlete>) => Promise<void>;
@@ -128,9 +130,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [workoutLogs, setWorkoutLogs] = useState<CompletedWorkoutLog[]>([]);
   const [sports, setSports] = useState<SportModality[]>([]);
   const [workoutDraft, setWorkoutDraft] = useState<WorkoutDraft>(defaultInitialDraft);
+  const [activeSessionIndex, setActiveSessionIndex] = useState<number>(0);
   const [selectedAthleteId, setSelectedAthleteId] = useState<string | null>(null);
 
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'info' | 'error' } | null>(null);
+
+  // Helper to deep sanitize data for Firestore (prevents undefined field rejection)
+  const sanitizeForFirestore = <T,>(data: T): any => {
+    return JSON.parse(
+      JSON.stringify(data, (_, v) => (v === undefined ? null : v))
+    );
+  };
 
   const showToast = (message: string, type: 'success' | 'info' | 'error' = 'success') => {
     setToast({ message, type });
@@ -272,6 +282,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         if (docSnap.exists()) {
           const data = docSnap.data();
           if (data?.draft) setWorkoutDraft(data.draft);
+          if (typeof data?.activeSessionIndex === 'number') {
+            setActiveSessionIndex(data.activeSessionIndex);
+          }
           if (data?.selectedAthleteId) setSelectedAthleteId(data.selectedAthleteId);
         }
       },
@@ -304,15 +317,21 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   };
 
-  // Sync draft & active athlete to Firestore
-  const persistDraftToFirestore = async (newDraft: WorkoutDraft, athleteId?: string | null) => {
+  // Sync draft, active session & active athlete to Firestore
+  const persistDraftToFirestore = async (
+    newDraft: WorkoutDraft,
+    athleteId?: string | null,
+    sessionIdx?: number
+  ) => {
     if (!currentUser) return;
     try {
+      const sanitizedDraft = sanitizeForFirestore(newDraft);
       await setDoc(
         doc(db, 'drafts', currentUser.uid),
         {
           coachId: currentUser.uid,
-          draft: newDraft,
+          draft: sanitizedDraft,
+          activeSessionIndex: sessionIdx !== undefined ? sessionIdx : activeSessionIndex,
           selectedAthleteId: athleteId ?? selectedAthleteId,
           updatedAt: new Date().toISOString(),
         },
@@ -398,20 +417,22 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   // Workout Draft Editor
-  const addExerciseToDraft = (exercise: Exercise, targetSessionIndex: number = 0) => {
+  const addExerciseToDraft = (exercise: Exercise, targetSessionIndex?: number) => {
+    const sIndex = targetSessionIndex !== undefined ? targetSessionIndex : activeSessionIndex;
     setWorkoutDraft((prev) => {
       const sessionsCopy = [...prev.sessions];
       if (sessionsCopy.length === 0) {
         sessionsCopy.push({
           id: `sess-${Date.now()}`,
           title: 'Treino A',
+          dayOfWeek: 'Segunda-feira',
           focusGoal: exercise.primaryGoals?.[0] || 'hipertrofia',
           estimatedDurationMinutes: 60,
           notes: '',
           exercises: [],
         });
       }
-      const sessionIdx = Math.min(Math.max(0, targetSessionIndex), sessionsCopy.length - 1);
+      const sessionIdx = Math.min(Math.max(0, sIndex), sessionsCopy.length - 1);
       const targetSession = { ...sessionsCopy[sessionIdx] };
 
       const newPrescribed: PrescribedExercise = {
@@ -430,14 +451,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         coachNotes: exercise.coachCues?.[0] || '',
       };
 
-      targetSession.exercises = [...targetSession.exercises, newPrescribed];
+      targetSession.exercises = [...(targetSession.exercises || []), newPrescribed];
       sessionsCopy[sessionIdx] = targetSession;
 
       const updated = {
         ...prev,
         sessions: sessionsCopy,
       };
-      persistDraftToFirestore(updated);
+      persistDraftToFirestore(updated, updated.targetAthleteId, sessionIdx);
       return updated;
     });
     showToast(`"${exercise.name}" adicionado à montagem do treino.`);
@@ -445,28 +466,40 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const clearWorkoutDraft = () => {
     setWorkoutDraft(defaultInitialDraft);
-    persistDraftToFirestore(defaultInitialDraft);
+    setActiveSessionIndex(0);
+    persistDraftToFirestore(defaultInitialDraft, null, 0);
   };
 
-  const loadProgramIntoDraft = (program: TrainingProgram, forAthleteId?: string) => {
+  const loadProgramIntoDraft = (
+    program: TrainingProgram,
+    forAthleteId?: string,
+    sessionIndex: number = 0
+  ) => {
+    const rawSessions = program.sessions || [];
+    const safeSessionIndex = Math.max(
+      0,
+      Math.min(sessionIndex, Math.max(0, rawSessions.length - 1))
+    );
+
     const updatedDraft: WorkoutDraft = {
       targetAthleteId: forAthleteId || program.athleteId || null,
       programId: program.id,
       title: program.title,
-      description: program.description,
+      description: program.description || '',
       splitType: program.splitType,
       category: program.category,
       level: program.level,
       weeklyFrequency: program.weeklyFrequency,
-      isTemplate: program.isTemplate,
-      sessions: JSON.parse(JSON.stringify(program.sessions || [])),
+      isTemplate: !!program.isTemplate,
+      sessions: JSON.parse(JSON.stringify(rawSessions)),
     };
     setWorkoutDraft(updatedDraft);
-    persistDraftToFirestore(updatedDraft, updatedDraft.targetAthleteId);
+    setActiveSessionIndex(safeSessionIndex);
+    persistDraftToFirestore(updatedDraft, updatedDraft.targetAthleteId, safeSessionIndex);
     showToast(`Programa "${program.title}" carregado no editor.`);
   };
 
-  // CRUD Programs in Cloud Firestore
+  // CRUD Programs in Cloud Firestore - Guaranteed 100% complete session & exercise preservation
   const saveProgram = async (
     programData: Omit<TrainingProgram, 'id' | 'createdAt' | 'updatedAt'>,
     existingId?: string
@@ -475,34 +508,67 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const now = new Date().toISOString();
     let saved: TrainingProgram;
 
+    // Deep-clean and preserve all sessions and exercises completely
+    const cleanSessions: WorkoutSession[] = (programData.sessions || []).map((session, sIdx) => ({
+      id: session.id || `sess-${Date.now()}-${sIdx}`,
+      title: session.title || `Treino ${String.fromCharCode(65 + sIdx)}`,
+      dayOfWeek: session.dayOfWeek || 'Segunda-feira',
+      focusGoal: session.focusGoal || programData.category || 'hipertrofia',
+      estimatedDurationMinutes: Number(session.estimatedDurationMinutes) || 60,
+      notes: session.notes || '',
+      exercises: (session.exercises || []).map((ex, eIdx) => ({
+        id: ex.id || `pe-${Date.now()}-${sIdx}-${eIdx}`,
+        exerciseId: ex.exerciseId || '',
+        exerciseName: ex.exerciseName || '',
+        section: ex.section || 'principal',
+        grouping: ex.grouping || 'individual',
+        groupTag: ex.groupTag || undefined,
+        sets: Number(ex.sets) || 3,
+        repsOrDuration: ex.repsOrDuration || '10 reps',
+        loadPrescription: ex.loadPrescription || '',
+        intensityMethod: ex.intensityMethod || 'rir',
+        intensityValue: ex.intensityValue || 'RIR 2',
+        restSeconds: Number(ex.restSeconds) || 90,
+        tempo: ex.tempo || '2-0-1-0',
+        coachNotes: ex.coachNotes || '',
+        alternativeExerciseName: ex.alternativeExerciseName || undefined,
+        paceTarget: ex.paceTarget || undefined,
+        distanceMeters: ex.distanceMeters ? Number(ex.distanceMeters) : undefined,
+        heartRateZone: ex.heartRateZone || undefined,
+      })),
+    }));
+
+    const cleanPayload = sanitizeForFirestore({
+      ...programData,
+      sessions: cleanSessions,
+      athleteId: programData.athleteId || null,
+      athleteName: programData.athleteName || null,
+      coachId: currentUser.uid,
+      updatedAt: now,
+    });
+
     if (existingId) {
-      const cleanData = {
-        ...programData,
-        coachId: currentUser.uid,
-        updatedAt: now,
+      delete (cleanPayload as any).id;
+      await updateDoc(doc(db, 'programs', existingId), cleanPayload);
+      saved = {
+        ...cleanPayload,
+        id: existingId,
+        createdAt: programs.find((p) => p.id === existingId)?.createdAt || now,
       };
-      delete (cleanData as any).id;
-      await updateDoc(doc(db, 'programs', existingId), cleanData);
-      saved = { ...cleanData, id: existingId, createdAt: programs.find((p) => p.id === existingId)?.createdAt || now };
-      showToast(`Programa "${saved.title}" atualizado no Firestore!`);
+      showToast(`Programa "${saved.title}" atualizado no Firestore! (${cleanSessions.length} divisões salvas)`);
     } else {
-      const cleanData = {
-        ...programData,
-        coachId: currentUser.uid,
-        createdAt: now,
-        updatedAt: now,
-      };
-      const docRef = await addDoc(collection(db, 'programs'), cleanData);
-      saved = { ...cleanData, id: docRef.id };
+      cleanPayload.createdAt = now;
+      const docRef = await addDoc(collection(db, 'programs'), cleanPayload);
+      saved = { ...cleanPayload, id: docRef.id };
       showToast(
         saved.isTemplate
-          ? `Modelo "${saved.title}" salvo no Firestore!`
-          : `Programa "${saved.title}" criado e atribuído!`
+          ? `Modelo "${saved.title}" salvo na biblioteca com ${cleanSessions.length} divisões!`
+          : `Programa "${saved.title}" criado e atribuído com ${cleanSessions.length} divisões!`
       );
     }
 
     if (saved.athleteId && !saved.isTemplate) {
-      updateAthlete(saved.athleteId, {
+      await updateAthlete(saved.athleteId, {
         activeProgramId: saved.id,
         activeProgramName: saved.title,
       });
@@ -529,32 +595,48 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
     const targetAthlete = athletes.find((a) => a.id === newAthleteId);
     const now = new Date().toISOString();
-    const payload = {
-      ...JSON.parse(JSON.stringify(source)),
+
+    // Deep clone 100% of sessions and exercises
+    const cleanSessions: WorkoutSession[] = (source.sessions || []).map((session, sIdx) => ({
+      id: `sess-${Date.now()}-${sIdx}`,
+      title: session.title || `Treino ${String.fromCharCode(65 + sIdx)}`,
+      dayOfWeek: session.dayOfWeek || 'Segunda-feira',
+      focusGoal: session.focusGoal || source.category || 'hipertrofia',
+      estimatedDurationMinutes: Number(session.estimatedDurationMinutes) || 60,
+      notes: session.notes || '',
+      exercises: (session.exercises || []).map((ex, eIdx) => ({
+        ...ex,
+        id: `pe-${Date.now()}-${sIdx}-${eIdx}`,
+      })),
+    }));
+
+    const cleanPayload = sanitizeForFirestore({
+      ...source,
       title: newTitle || `${source.title} (Personalizado para ${targetAthlete?.name || 'Novo Aluno'})`,
-      athleteId: newAthleteId || undefined,
-      athleteName: targetAthlete?.name || undefined,
-      isTemplate: false,
+      athleteId: newAthleteId || null,
+      athleteName: targetAthlete?.name || null,
+      isTemplate: !newAthleteId,
+      sessions: cleanSessions,
       coachId: currentUser.uid,
       createdAt: now,
       updatedAt: now,
-    };
-    delete payload.id;
+    });
+    delete cleanPayload.id;
 
-    const docRef = await addDoc(collection(db, 'programs'), payload);
+    const docRef = await addDoc(collection(db, 'programs'), cleanPayload);
     const duplicated: TrainingProgram = {
-      ...payload,
+      ...cleanPayload,
       id: docRef.id,
     };
 
     if (newAthleteId) {
-      updateAthlete(newAthleteId, {
+      await updateAthlete(newAthleteId, {
         activeProgramId: duplicated.id,
         activeProgramName: duplicated.title,
       });
     }
 
-    showToast(`Programa duplicado com sucesso para ${targetAthlete?.name || 'atleta'}!`);
+    showToast(`Programa com ${cleanSessions.length} sessões duplicado com sucesso para ${targetAthlete?.name || 'atleta'}!`);
     return duplicated;
   };
 
@@ -732,6 +814,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         selectedAthlete,
         workoutDraft,
         setWorkoutDraft,
+        activeSessionIndex,
+        setActiveSessionIndex,
         addExerciseToDraft,
         clearWorkoutDraft,
         loadProgramIntoDraft,

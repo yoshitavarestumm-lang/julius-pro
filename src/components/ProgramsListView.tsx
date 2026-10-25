@@ -75,9 +75,9 @@ export const ProgramsListView: React.FC<ProgramsListViewProps> = ({
     setCustomizedTitle(`${program.title} (Personalizado)`);
   };
 
-  const handleConfirmDuplicate = () => {
+  const handleConfirmDuplicate = async () => {
     if (!duplicateTargetProgram) return;
-    duplicateProgram(
+    await duplicateProgram(
       duplicateTargetProgram.id,
       selectedDestinationAthleteId || undefined,
       customizedTitle
@@ -184,13 +184,26 @@ export const ProgramsListView: React.FC<ProgramsListViewProps> = ({
                 </p>
 
                 {/* Sessions summary */}
-                <div className="mt-4 pt-3 border-t border-slate-800 space-y-1.5 text-xs">
+                <div className="mt-4 pt-3 border-t border-slate-800 space-y-2 text-xs">
                   <div className="flex items-center justify-between text-slate-400">
                     <span>Divisões / Sessões:</span>
                     <span className="font-mono text-slate-200 font-bold">
-                      {program.sessions.length} sessões
+                      {(program.sessions || []).length} sessões
                     </span>
                   </div>
+
+                  {/* Sessions badges */}
+                  <div className="flex flex-wrap gap-1.5 py-0.5">
+                    {(program.sessions || []).map((s, idx) => (
+                      <span
+                        key={s.id || `sess-${idx}`}
+                        className="px-2 py-0.5 rounded bg-slate-800 text-[11px] text-slate-300 border border-slate-700/60 font-mono"
+                      >
+                        <strong className="text-emerald-400">{s.title.split('-')[0].trim()}</strong>: {(s.exercises || []).length} ex
+                      </span>
+                    ))}
+                  </div>
+
                   <div className="flex items-center justify-between text-slate-400">
                     <span>Frequência semanal:</span>
                     <span className="font-mono text-slate-200">
